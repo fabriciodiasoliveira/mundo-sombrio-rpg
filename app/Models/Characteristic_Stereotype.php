@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Characteristic_Stereotype extends Model
 {
     use HasFactory;
+    protected $table = "ms_characteristic_stereotypes";
 }

@@ -13,7 +13,7 @@ class CreateCharacteristicStereotypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('characteristic__stereotypes', function (Blueprint $table) {
+        Schema::create('ms_characteristic_stereotypes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateCharacteristicStereotypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('characteristic__stereotypes');
+        Schema::dropIfExists('ms_characteristic_stereotypes');
     }
 }

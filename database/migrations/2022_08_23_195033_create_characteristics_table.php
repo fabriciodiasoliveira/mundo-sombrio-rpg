@@ -13,7 +13,7 @@ class CreateCharacteristicsTable extends Migration
      */
     public function up()
     {
-        Schema::create('characteristics', function (Blueprint $table) {
+        Schema::create('ms_characteristics', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateCharacteristicsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('characteristics');
+        Schema::dropIfExists('ms_characteristics');
     }
 }

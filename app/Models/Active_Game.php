@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Active_Game extends Model
 {
     use HasFactory;
+    protected $table = "ms_active_games";
 }

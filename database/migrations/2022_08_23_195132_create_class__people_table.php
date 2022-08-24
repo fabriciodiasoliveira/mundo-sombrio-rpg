@@ -13,7 +13,7 @@ class CreateClassPeopleTable extends Migration
      */
     public function up()
     {
-        Schema::create('class__people', function (Blueprint $table) {
+        Schema::create('ms_class_people', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateClassPeopleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('class__people');
+        Schema::dropIfExists('ms_class_people');
     }
 }

@@ -13,7 +13,7 @@ class CreateAuguriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('auguries', function (Blueprint $table) {
+        Schema::create('ms_auguries', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateAuguriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('auguries');
+        Schema::dropIfExists('ms_auguries');
     }
 }

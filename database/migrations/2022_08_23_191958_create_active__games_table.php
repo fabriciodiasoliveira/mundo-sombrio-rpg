@@ -13,7 +13,7 @@ class CreateActiveGamesTable extends Migration
      */
     public function up()
     {
-        Schema::create('active__games', function (Blueprint $table) {
+        Schema::create('ms_active_games', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateActiveGamesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('active__games');
+        Schema::dropIfExists('ms_active_games');
     }
 }

@@ -13,7 +13,7 @@ class CreateTribesTable extends Migration
      */
     public function up()
     {
-        Schema::create('tribes', function (Blueprint $table) {
+        Schema::create('ms_tribes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateTribesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tribes');
+        Schema::dropIfExists('ms_tribes');
     }
 }
