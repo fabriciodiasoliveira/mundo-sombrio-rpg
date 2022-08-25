@@ -2,3 +2,4 @@
 Início do desenvolvimento do site Mundo Sombrio RPG.
 <br>.
 <br>Sem documentação no momento, estou começando ainda.
+<img src='diagrama_de_classes.drawio.png'/>
