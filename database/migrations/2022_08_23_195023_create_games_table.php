@@ -15,6 +15,9 @@ class CreateGamesTable extends Migration
     {
         Schema::create('ms_games', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 255);
+            $table->bigInteger('id_user');
+            $table->boolean('active');
             $table->timestamps();
         });
     }
