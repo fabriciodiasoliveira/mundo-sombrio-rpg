@@ -15,6 +15,8 @@ class CreateTribesTable extends Migration
     {
         Schema::create('ms_tribes', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 255);
+            $table->longText('description');
             $table->timestamps();
         });
     }

@@ -15,6 +15,10 @@ class CreateCharacteristicStereotypesTable extends Migration
     {
         Schema::create('ms_characteristic_stereotypes', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('characteristic_id');
+            $table->foreign('characteristic_id')->references('id')->on('ms_characteristics')->cascadeOnDelete();
+            $table->unsignedBigInteger('stereotype_id');
+            $table->foreign('stereotype_id')->references('id')->on('ms_stereotypes')->cascadeOnDelete();
             $table->timestamps();
         });
     }
