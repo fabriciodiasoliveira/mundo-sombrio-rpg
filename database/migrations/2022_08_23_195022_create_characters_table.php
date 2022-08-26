@@ -15,6 +15,10 @@ class CreateCharactersTable extends Migration
     {
         Schema::create('ms_characters', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 255);
+            $table->longText('description');
+            $table->unsignedBigInteger('id_stereotype');
+            $table->foreign('id_stereotype')->references('id')->on('ms_stereotypes')->cascadeOnDelete();
             $table->timestamps();
         });
     }

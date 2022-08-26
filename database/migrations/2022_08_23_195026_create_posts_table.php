@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger('game_id');
             $table->foreign('game_id')->references('id')->on('ms_games')->cascadeOnDelete();;
             $table->unsignedBigInteger('character_id');
-            $table->foreign('character_id')->references('id')->on('ms_characters')->cascadeOnDelete();;
+            $table->foreign('character_id')->references('id')->on('ms_characters')->cascadeOnDelete();
             $table->timestamps();
         });
     }
