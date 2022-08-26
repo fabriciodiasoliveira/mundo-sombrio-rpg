@@ -17,8 +17,9 @@ class CreateCharactersTable extends Migration
             $table->id();
             $table->string('name', 255);
             $table->longText('description');
-            $table->unsignedBigInteger('id_stereotype');
-            $table->foreign('id_stereotype')->references('id')->on('ms_stereotypes')->cascadeOnDelete();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('stereotype_id');
+            $table->foreign('stereotype_id')->references('id')->on('ms_stereotypes')->cascadeOnDelete();
             $table->timestamps();
         });
     }
