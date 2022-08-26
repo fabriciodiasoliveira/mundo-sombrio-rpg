@@ -15,6 +15,12 @@ class CreateCharacteristicsTable extends Migration
     {
         Schema::create('ms_characteristics', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 255);
+            $table->longText('description');
+            $table->unsignedBigInteger('class_id');
+            $table->foreign('class_id')->references('id')->on('ms_class_people')->cascadeOnDelete();
+            $table->unsignedBigInteger('augury_id');
+            $table->foreign('augury_id')->references('id')->on('ms_auguries')->cascadeOnDelete();
             $table->timestamps();
         });
     }
