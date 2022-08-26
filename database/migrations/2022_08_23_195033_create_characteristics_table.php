@@ -21,6 +21,8 @@ class CreateCharacteristicsTable extends Migration
             $table->foreign('class_id')->references('id')->on('ms_class_people')->cascadeOnDelete();
             $table->unsignedBigInteger('augury_id');
             $table->foreign('augury_id')->references('id')->on('ms_auguries')->cascadeOnDelete();
+            $table->unsignedBigInteger('tribe_id');
+            $table->foreign('tribe_id')->references('id')->on('ms_tribes')->cascadeOnDelete();
             $table->timestamps();
         });
     }
