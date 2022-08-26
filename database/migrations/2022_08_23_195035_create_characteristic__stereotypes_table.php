@@ -19,6 +19,7 @@ class CreateCharacteristicStereotypesTable extends Migration
             $table->foreign('characteristic_id')->references('id')->on('ms_characteristics')->cascadeOnDelete();
             $table->unsignedBigInteger('stereotype_id');
             $table->foreign('stereotype_id')->references('id')->on('ms_stereotypes')->cascadeOnDelete();
+            $table->integer('value');
             $table->timestamps();
         });
     }
