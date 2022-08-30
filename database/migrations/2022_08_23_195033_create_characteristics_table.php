@@ -25,6 +25,8 @@ class CreateCharacteristicsTable extends Migration
             $table->foreign('tribe_id')->references('id')->on('ms_tribes')->cascadeOnDelete();
             $table->unsignedBigInteger('race_id');
             $table->foreign('race_id')->references('id')->on('ms_races')->cascadeOnDelete();
+            $table->unsignedBigInteger('characteristic_type_id');
+            $table->foreign('characteristic_type_id')->references('id')->on('ms_characteristic_types')->cascadeOnDelete();
             $table->timestamps();
         });
     }
