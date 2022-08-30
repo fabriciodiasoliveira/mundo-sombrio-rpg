@@ -17,6 +17,8 @@ class CreateClassPeopleTable extends Migration
             $table->id();
             $table->string('name');
             $table->longText('description');
+            $table->longText('powers');
+            $table->longText('little_description');
             $table->timestamps();
         });
     }
