@@ -3,26 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Class_Person;
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    private $model;
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->model = new Class_Person();
     }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
-        return view('home');
+        $vampire = $this->model->get_all_class_persons()[1];
+        return view('welcome', compact('vampire'));
     }
 }

@@ -15,10 +15,10 @@ class CreateClassPeopleTable extends Migration
     {
         Schema::create('ms_class_people', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->longText('description');
-            $table->longText('powers');
-            $table->longText('little_description');
+            $table->string('name')->nullable();
+            $table->longText('description')->nullable();
+            $table->longText('powers')->nullable();
+            $table->longText('little_description')->nullable();
             $table->timestamps();
         });
     }

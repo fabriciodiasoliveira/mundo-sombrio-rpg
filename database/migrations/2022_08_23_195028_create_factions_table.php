@@ -15,6 +15,8 @@ class CreateFactionsTable extends Migration
     {
         Schema::create('ms_factions', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 255);
+            $table->longText('description');
             $table->unsignedBigInteger('class_id');
             $table->foreign('class_id')->references('id')->on('ms_class_people')->cascadeOnDelete();
             $table->timestamps();

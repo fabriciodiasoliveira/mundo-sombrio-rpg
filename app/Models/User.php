@@ -23,7 +23,25 @@ class User extends Authenticatable
         'tipo',
         'password',
     ];
-
+    public function get_all_users()
+    {
+        return User::query()->select('*')->get();
+    }
+    public function remove($id){
+        User::query()->where('id', '=', $id)->delete();
+    }
+    public function get_user($id)
+    {
+        return User::query()->select('*')->where('id', '=', $id)->first();
+    }
+    public function update_wingout_model($id, Array $options)
+    {
+        User::query()->where('id', '=', $id)->update($options);
+    }
+    public function store(array $options = [])
+    {
+        return User::query()->insertGetId($options);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
