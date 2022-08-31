@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Class_Person extends Model
 {
@@ -15,8 +16,12 @@ class Class_Person extends Model
         'powers',
         'little_description',
     ];
-    public function get_all_factions(){
-        
+    public function get_all_factions($id){
+        return DB::table('ms_factions as f')
+            ->join('ms_class_people as c', 'c.id', '=', 'f.class_id')
+            ->select('c.name', 'f.*')
+            ->where('c.id', '=', $id)
+            ->get();
     }
     public function get_all_class_persons()
     {
