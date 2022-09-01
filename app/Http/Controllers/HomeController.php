@@ -13,7 +13,7 @@ class HomeController extends Controller
     }
     public function index()
     {
-        $vampire = $this->model->get_all_class_persons()[1];
-        return view('welcome', compact('vampire'));
+        $classes = $this->model->get_all_class_persons();
+        return view('welcome', compact('classes'));
     }
 }

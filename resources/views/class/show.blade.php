@@ -4,12 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            @component('components.posts.anuncio', compact ('anuncio'))@endcomponent
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            @component('components.posts.show', compact ('post'))@endcomponent
+            @component('components.class.show', compact ('class'))@endcomponent
         </div>
     </div>
 </div>

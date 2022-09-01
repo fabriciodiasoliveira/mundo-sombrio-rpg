@@ -25,19 +25,25 @@ class ClassPersonController extends Controller
     {
         //
     }
-    public function show(Class_Person $class_Person)
+    public function show($id)
+    {
+        $class = $this->model->get_class_person($id);
+        return view('class.show', compact('class'));
+    }
+    public function show_one($id)
+    {
+        $class = $this->model->get_class_person($id);
+        return view('components.class.show', compact('class'));
+    }
+    public function edit($id)
     {
         //
     }
-    public function edit(Class_Person $class_Person)
+    public function update(Request $request, $id)
     {
         //
     }
-    public function update(Request $request, Class_Person $class_Person)
-    {
-        //
-    }
-    public function destroy(Class_Person $class_Person)
+    public function destroy($id)
     {
         //
     }

@@ -19,9 +19,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Class
+Route::get('/class', [App\Http\Controllers\ClassPersonController::class, 'index'])->name('class');
+Route::get('/class/{i}', [App\Http\Controllers\ClassPersonController::class, 'show'])->name('class.show');
+Route::get('/class/one/{i}', [App\Http\Controllers\ClassPersonController::class, 'show_one'])->name('class.show.one');
 Auth::routes();
 
 
 Route::group(['middleware' => 'App\Http\Middleware\IsAdmin'], function() {
-   Route::get('/admin/classes', [App\Http\Controllers\ClassPersonController::class, 'index'])->name('admin.class');
+   Route::get('/admin/class', [App\Http\Controllers\ClassPersonController::class, 'index'])->name('admin.class');
 });

@@ -4,18 +4,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1>{{ $vampire->name }}</h1>
+            @component('components.class.list',compact('classes'))@endcomponent
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            {!! $vampire->description !!}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            {!! $vampire->powers !!}
-        </div>
+    <div id="class-show">
+        
     </div>
 </div>
 @endsection
