@@ -19,7 +19,7 @@ class ClassPersonController extends Controller
     }
     public function create()
     {
-        //
+        return view('class.create');
     }
     public function store(Request $request)
     {
@@ -29,11 +29,6 @@ class ClassPersonController extends Controller
     {
         $class = $this->model->get_class_person($id);
         return view('class.show', compact('class'));
-    }
-    public function show_one($id)
-    {
-        $class = $this->model->get_class_person($id);
-        return view('components.class.show', compact('class'));
     }
     public function edit($id)
     {
