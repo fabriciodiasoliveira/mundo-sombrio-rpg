@@ -40,6 +40,7 @@ class Class_Person extends Model
     }
     public function store(array $options = [])
     {
-        return _class_person::query()->insertGetId($options);
+        unset($options['_token']);
+        return Class_Person::query()->insertGetId($options);
     }
 }

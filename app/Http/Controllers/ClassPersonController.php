@@ -23,7 +23,9 @@ class ClassPersonController extends Controller
     }
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $this->model->store($data);
+        return redirect()->route('admin.class')->with('success', 'Uma classe inserida.');
     }
     public function show($id)
     {
@@ -40,6 +42,7 @@ class ClassPersonController extends Controller
     }
     public function destroy($id)
     {
-        //
+        $this->model->remove($id);
+        return redirect()->route('admin.class')->with('success', 'Uma classe removida.');
     }
 }

@@ -28,5 +28,9 @@ Auth::routes();
 
 
 Route::group(['middleware' => 'App\Http\Middleware\IsAdmin'], function() {
+   //Class
    Route::get('/admin/class', [App\Http\Controllers\ClassPersonController::class, 'index'])->name('admin.class');
+   Route::get('/admin/class/create/', [App\Http\Controllers\ClassPersonController::class, 'create'])->name('admin.class.create');
+   Route::post('/admin/class', [App\Http\Controllers\ClassPersonController::class, 'store'])->name('admin.class.store');
+   Route::delete('/admin/class/delete/{id}', [App\Http\Controllers\ClassPersonController::class, 'destroy'])->name('admin.class.destroy');
 });
