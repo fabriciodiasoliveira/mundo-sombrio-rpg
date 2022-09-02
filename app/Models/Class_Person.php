@@ -36,6 +36,8 @@ class Class_Person extends Model
     }
     public function update_wingout_model($id, Array $options)
     {
+        unset($options['_token']);
+        unset($options['_method']);
         Class_Person::query()->where('id', '=', $id)->update($options);
     }
     public function store(array $options = [])

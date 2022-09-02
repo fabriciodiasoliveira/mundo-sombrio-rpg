@@ -7,9 +7,9 @@
             <div class="card" style="width: 100%;">
                 <!--<img class="card-img-top" src="..." alt="Card image cap">-->
                 <div class="card-body">
-                    <h5 class="card-title">Alterar postagem</h5>
-                    <p class="card-text">Faça uma alteração na postagem.</p>
-                    @component('components.posts.posts', compact('post'))@endcomponent
+                    <h5 class="card-title">Editando</h5>
+                    <p class="card-text">Edite a classe.</p>
+                        @component('components.class.class', compact('class'))@endcomponent
                 </div>
             </div>
         </div>

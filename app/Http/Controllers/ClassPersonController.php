@@ -23,8 +23,8 @@ class ClassPersonController extends Controller
     }
     public function store(Request $request)
     {
-        $data = $request->all();
-        $this->model->store($data);
+        $options = $request->all();
+        $this->model->store($options);
         return redirect()->route('admin.class')->with('success', 'Uma classe inserida.');
     }
     public function show($id)
@@ -34,11 +34,14 @@ class ClassPersonController extends Controller
     }
     public function edit($id)
     {
-        //
+        $class = $this->model->get_class_person($id);
+        return view('class.edit', compact('class'));
     }
     public function update(Request $request, $id)
     {
-        //
+        $options = $request->all();
+        $this->model->update_wingout_model($id, $options);
+        return redirect()->route('admin.class')->with('success', 'Uma classe alterada.');
     }
     public function destroy($id)
     {

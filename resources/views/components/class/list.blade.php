@@ -12,7 +12,7 @@
             <tr>
                 <td width="10%"><a href="{{ route('class.show', $class->id) }}">{{ $class->name }}</a></td>
                 <td width="90%">{{ $class->little_description }}</td>
-                <td><a href="#" class="btn btn-primary">Alterar</a></td>
+                <td><a href="{{ route ('admin.class.edit', $class->id) }}" class="btn btn-primary">Alterar</a></td>
                 <td>
                     <button type="button" class="btn btn-danger rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $class->id }}">
                         Deletar

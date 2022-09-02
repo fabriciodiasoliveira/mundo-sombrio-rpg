@@ -33,4 +33,6 @@ Route::group(['middleware' => 'App\Http\Middleware\IsAdmin'], function() {
    Route::get('/admin/class/create/', [App\Http\Controllers\ClassPersonController::class, 'create'])->name('admin.class.create');
    Route::post('/admin/class', [App\Http\Controllers\ClassPersonController::class, 'store'])->name('admin.class.store');
    Route::delete('/admin/class/delete/{id}', [App\Http\Controllers\ClassPersonController::class, 'destroy'])->name('admin.class.destroy');
+   Route::get('/admin/class/edit/{id}', [App\Http\Controllers\ClassPersonController::class, 'edit'])->name('admin.class.edit');
+   Route::put('/admin/class/update/{id}', [App\Http\Controllers\ClassPersonController::class, 'update'])->name('admin.class.update');
 });

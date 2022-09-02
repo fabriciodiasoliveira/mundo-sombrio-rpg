@@ -77,7 +77,7 @@
     </div>
 </form>
 @else
-<form id="form" class="form-horizontal" method="POST" action="">
+<form id="form" class="form-horizontal" method="POST" action="{{ route ('admin.class.update', $class->id) }}">
     {{ csrf_field() }}
     <input type="hidden" name="_method" value="PUT" />
     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
