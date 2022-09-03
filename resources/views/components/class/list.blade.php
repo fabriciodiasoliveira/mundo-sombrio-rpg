@@ -3,7 +3,7 @@
     <div class="col-md-12">
         <table class="table table-striped" width="100%">
             <thead>
-            <td><h3>Nome da raça</h3></td>
+            <td><h3>Criaturas</h3></td>
             <td><h3>Quem são</h3></td>
             @if( Auth::user()!=null && Auth::user()->tipo == 'admin')
                 <td></td>
