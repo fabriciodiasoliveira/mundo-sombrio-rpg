@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Faction extends Model
 {
     use HasFactory;
+    
 }

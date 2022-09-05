@@ -25,24 +25,8 @@
                     @endif
                 </div>
             </div>
-            <div class="form-group{{ $errors->has('faction_id') ? ' has-error' : '' }}">
-                <label for="faction_id" class="col-md-4 control-label">Facção</label>
-                <div class="col-md-6">
-                    <select class="" name="faction_id">
-                      <option value="0" selected>Valor 1</option>
-                        @foreach($factions as $faction)
-                        <option value="{{ $faction->id }}">{{ $faction->name }}</option>
-                        @endforeach
-                    </select>
-                    
-                    @if ($errors->has('faction_id'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('faction_id') }}</strong>
-                    </span>
-                    @endif
-                </div>
-            </div>
             <input type="hidden" name="characteristic_type_id" value="1"/>
+            <input type="hidden" name="faction_id" value="0"/>
             <input type="hidden" name="class_id" value="{{ $class->id }}"/>
             <input type="hidden" name="race_id" value="0"/>
             <input type="hidden" name="augury_id" value="0"/>
