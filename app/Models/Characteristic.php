@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Characteristic extends Model
 {
@@ -13,18 +14,21 @@ class Characteristic extends Model
         'name',
         'description',
     ];
-    //Métodos especiais
-    
-    
     //Métodos básicos
     public function get_all_characteristics_class($class_id)
     {
-        return Characteristic::query()->where('class_id', '=', $class_id)->select('*')->get();
+        return DB::table('ms_characteristics as ch')
+            ->leftJoin('ms_races as r', 'ch.race_id', '=', 'r.id')
+            ->leftJoin('ms_auguries as a', 'ch.augury_id', '=', 'a.id')
+            ->leftJoin('ms_factions as f', 'ch.faction_id', '=', 'f.id')
+            ->select('r.name as race_name', 'a.name as augury_name', 'f.name as faction_name', 'ch.*')
+            ->where('ch.class_id', '=', $class_id)
+            ->toSql();
     }
     public function remove($id){
         Characteristic::query()->where('id', '=', $id)->delete();
     }
-    public function get_class_person($id)
+    public function get_characteristic($id)
     {
         return Characteristic::query()->select('*')->where('id', '=', $id)->first();
     }

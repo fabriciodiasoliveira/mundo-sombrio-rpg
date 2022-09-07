@@ -15,6 +15,7 @@ class Class_Person extends Model
         'description',
         'powers',
         'little_description',
+        'image',
     ];
     public function get_all_factions($id){
         return DB::table('ms_factions as f')

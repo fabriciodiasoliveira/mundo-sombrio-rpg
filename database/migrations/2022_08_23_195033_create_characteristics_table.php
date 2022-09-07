@@ -20,15 +20,10 @@ class CreateCharacteristicsTable extends Migration
             $table->unsignedBigInteger('class_id');
             $table->foreign('class_id')->references('id')->on('ms_class_people')->cascadeOnDelete();
             $table->unsignedBigInteger('augury_id');
-            $table->foreign('augury_id')->references('id')->on('ms_auguries')->cascadeOnDelete();
             $table->unsignedBigInteger('tribe_id');
-            $table->foreign('tribe_id')->references('id')->on('ms_tribes')->cascadeOnDelete();
             $table->unsignedBigInteger('race_id');
-            $table->foreign('race_id')->references('id')->on('ms_races')->cascadeOnDelete();
             $table->unsignedBigInteger('faction_id');
-            $table->foreign('faction_id')->references('id')->on('ms_factions')->cascadeOnDelete();
             $table->unsignedBigInteger('characteristic_type_id');
-            $table->foreign('characteristic_type_id')->references('id')->on('ms_characteristic_types')->cascadeOnDelete();
             $table->timestamps();
         });
     }
