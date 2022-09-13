@@ -23,7 +23,7 @@ class Characteristic extends Model
             ->leftJoin('ms_factions as f', 'ch.faction_id', '=', 'f.id')
             ->select('r.name as race_name', 'a.name as augury_name', 'f.name as faction_name', 'ch.*')
             ->where('ch.class_id', '=', $class_id)
-            ->toSql();
+            ->get();
     }
     public function remove($id){
         Characteristic::query()->where('id', '=', $id)->delete();

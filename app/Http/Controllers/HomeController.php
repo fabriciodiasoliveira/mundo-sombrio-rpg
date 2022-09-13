@@ -17,8 +17,6 @@ class HomeController extends Controller
     public function index()
     {
         $classes = $this->model->get_all_class_persons();
-        $characteristics = $this->model_characteristic->get_all_characteristics_class(2);
-        dd($characteristics);
         return view('welcome', compact('classes'));
     }
 }

@@ -15,6 +15,14 @@ class Faction extends Model
         'class_id',
         'image',
     ];
+    
+    public function get_all_factions_for_class_id($class_id)
+    {
+        return Faction::query()->select('*')
+                ->where('class_id', '=', $class_id)
+                ->get();
+    }
+    
     public function get_all_factions()
     {
         return Faction::query()->select('*')->get();

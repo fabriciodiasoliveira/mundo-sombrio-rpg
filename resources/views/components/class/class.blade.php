@@ -112,7 +112,7 @@
         <label for="powers" class="col-md-4 control-label">Poderes das criaturas dessa classe</label>
 
         <div class="col-md-6">
-            <textarea id="powers" class="form-control" name="powers">{{ $class->description }}</textarea>
+            <textarea id="powers" class="form-control" name="powers">{{ $class->powers }}</textarea>
 
             @if ($errors->has('powers'))
             <span class="help-block">
