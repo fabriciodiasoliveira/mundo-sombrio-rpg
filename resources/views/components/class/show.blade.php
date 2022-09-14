@@ -1,10 +1,15 @@
 <div class="row">
     <div id="class" class="col-md-12">
         <h1>{{ $class->name }}</h1>
-        {!! $class->description !!}
-        {!! $class->powers !!}
+        <div id="description">
+            {!! $class->description !!}
+        </div>
+        <div id="powers">
+            {!! $class->powers !!}
+        </div>
     </div>
 </div>
 <script>
-    set_collapse();
+    set_collapse($("#description"));
+    set_collapse($("#powers"));
 </script>
