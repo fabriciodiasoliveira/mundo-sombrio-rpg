@@ -30,12 +30,15 @@ class ClassPersonController extends Controller
     public function show($id)
     {
         $class = $this->model->get_class_person($id);
-        return view('class.show', compact('class'));
+        $factions = $this->model->get_all_factions($id);
+        return view('class.show', compact('class', 'factions'));
     }
     public function edit($id)
     {
         $class = $this->model->get_class_person($id);
-        return view('class.edit', compact('class'));
+        $characteristics = $this->model->get_all_characteristics($id);
+//        return view('class.edit', compact('class'));
+        return view('class.showvar', compact('characteristics'));
     }
     public function update(Request $request, $id)
     {

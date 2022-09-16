@@ -57,7 +57,8 @@ collapse3 = '</a><div class="collapse" id="collapseExample';
 collapse4 = '"><div class="card card-body">'
 collapse5 = '</div></div>'
 global_element = 0;
-
+chapters = 0;
+class_total = 0;
 function set_collapse(element){
     global_element = element;
     id = 0;
@@ -68,15 +69,16 @@ function set_collapse(element){
     element.html(class_total);
 }
 function concatenate(){
-    class_chapter = chapters[id].split("</h3>");
-    if(kmpSearch('Ꮤ', class_chapter[0])==true){
-                class_total = class_total 
-                        +'<br><b>'
-                        + class_chapter[0] 
-                        +'</b>'
-                        + class_chapter[1];
-    }
-    else{
+    if(chapters[id] != undefined){
+        class_chapter = chapters[id].split("</h3>");
+        if(class_chapter[1] != undefined){
+            if(class_chapter[1].search('<h4>') != -1){
+//                text = class_chapter[1];
+//                chapters_subtitle = text.split("<h4>");
+//                set_collapse_subtitle();
+//                  class_total = class_chapter[1];
+            }
+        }
         if(id != 0){
             class_total = class_total + collapse1 + id + global_element.attr('id');
             class_total = class_total + collapse2;
@@ -91,4 +93,20 @@ function concatenate(){
         }
     }
     id++;
+}
+function set_collapse_subtitle(){
+    ids = 0;
+    chapters_subtitle.forEach(concatenate_subtitle);
+}
+function concatenate_subtitle(){
+    class_subtitle = text.split("</h4>");
+    class_chapter[1] = '';
+    class_chapter[1] = class_chapter[1] + collapse1 + ids;
+    class_chapter[1] = class_chapter[1] + collapse2;
+    class_chapter[1] = class_chapter[1] + class_subtitle[0];
+    class_chapter[1] = class_chapter[1] + collapse3 + ids;
+    class_chapter[1] = class_chapter[1] + collapse4;
+    class_chapter[1] = class_chapter[1] + class_subtitle[1];
+    class_chapter[1] = class_chapter[1] + collapse5 + collapse5;
+    ids++;
 }
