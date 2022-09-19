@@ -58,14 +58,5 @@ class Class_Person extends Model
             ->where('c.id', '=', $id)
             ->get();
     }
-    public function get_all_characteristics($id){
-        return DB::table('ms_characteristics as ch')
-            ->join('ms_class_people as c', 'c.id', '=', 'ch.class_id')
-            ->leftJoin('ms_factions as f', 'f.id', 'ch.faction_id' )
-            ->leftJoin('ms_races as r', 'ch.race_id', 'r.id' )
-            ->leftJoin('ms_auguries as a', 'ch.augury_id', 'a.id' )
-            ->select('c.name', 'f.name as faction_name', 'a.name as augury_name', 'r.name as race_name', 'ch.*')
-            ->where('c.id', '=', $id)
-            ->get();
-    }
+    
 }

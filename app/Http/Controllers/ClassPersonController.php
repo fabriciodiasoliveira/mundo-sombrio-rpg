@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\ClassService;
 use App\Models\Class_Person;
 use Illuminate\Http\Request;
 
 class ClassPersonController extends Controller
 {
     private $model;
+    private $service;
     public function __construct() {
         $this->model = new Class_Person();
+        $this->service = new ClassService();
     }
 
     public function index()
@@ -36,9 +39,9 @@ class ClassPersonController extends Controller
     public function edit($id)
     {
         $class = $this->model->get_class_person($id);
-        $characteristics = $this->model->get_all_characteristics($id);
-//        return view('class.edit', compact('class'));
-        return view('class.showvar', compact('characteristics'));
+        $characteristics = $this->service->get_all_characteristics_for_class_people($class->id);
+        dd($characteristics);
+        return view('class.edit', compact('class'));
     }
     public function update(Request $request, $id)
     {

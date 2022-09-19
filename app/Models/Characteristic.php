@@ -15,16 +15,6 @@ class Characteristic extends Model
         'description',
     ];
     //Métodos básicos
-    public function get_all_characteristics_class($class_id)
-    {
-        return DB::table('ms_characteristics as ch')
-            ->leftJoin('ms_races as r', 'ch.race_id', '=', 'r.id')
-            ->leftJoin('ms_auguries as a', 'ch.augury_id', '=', 'a.id')
-            ->leftJoin('ms_factions as f', 'ch.faction_id', '=', 'f.id')
-            ->select('r.name as race_name', 'a.name as augury_name', 'f.name as faction_name', 'ch.*')
-            ->where('ch.class_id', '=', $class_id)
-            ->get();
-    }
     public function remove($id){
         Characteristic::query()->where('id', '=', $id)->delete();
     }
@@ -42,5 +32,40 @@ class Characteristic extends Model
     {
         unset($options['_token']);
         return Characteristic::query()->insertGetId($options);
+    }
+
+    //Métodos especiais
+    public function get_all_characteristics_for_class_people($class_id){
+        return DB::table('ms_characteristics as ch')
+                ->join('ms_class_people as c', 'c.id', '=', 'ch.class_id')
+                ->leftJoin('ms_factions as f', 'f.id', 'ch.faction_id' )
+                ->leftJoin('ms_races as r', 'ch.race_id', 'r.id' )
+                ->leftJoin('ms_auguries as a', 'ch.augury_id', 'a.id' )
+                ->leftJoin('ms_characteristic_types as ct', 'ch.characteristic_type_id', 'ct.id')
+                ->select('c.name','ct.name as characteristic_type_name', 'f.name as faction_name', 'a.name as augury_name', 'r.name as race_name', 'ch.*')
+                ->where('c.id', '=', $class_id)
+                ->get();
+    }
+    public function get_all_characteristics_for_types($characteristic_type_id){
+        return DB::table('ms_characteristics as ch')
+                ->join('ms_class_people as c', 'c.id', '=', 'ch.class_id')
+                ->leftJoin('ms_factions as f', 'f.id', 'ch.faction_id' )
+                ->leftJoin('ms_races as r', 'ch.race_id', 'r.id' )
+                ->leftJoin('ms_auguries as a', 'ch.augury_id', 'a.id' )
+                ->leftJoin('ms_characteristic_types as ct', 'ch.characteristic_type_id', 'ct.id')
+                ->select('c.name','ct.name as characteristic_type_name', 'f.name as faction_name', 'a.name as augury_name', 'r.name as race_name', 'ch.*')
+                ->where('ct.id', '=', $characteristic_type_id)
+                ->get();
+    }
+    public function get_all_characteristics_for_factions($characteristic_type_id){
+        return DB::table('ms_characteristics as ch')
+                ->join('ms_class_people as c', 'c.id', '=', 'ch.class_id')
+                ->leftJoin('ms_factions as f', 'f.id', 'ch.faction_id' )
+                ->leftJoin('ms_races as r', 'ch.race_id', 'r.id' )
+                ->leftJoin('ms_auguries as a', 'ch.augury_id', 'a.id' )
+                ->leftJoin('ms_characteristic_types as ct', 'ch.characteristic_type_id', 'ct.id')
+                ->select('c.name','ct.name as characteristic_type_name', 'f.name as faction_name', 'a.name as augury_name', 'r.name as race_name', 'ch.*')
+                ->where('ct.id', '=', $characteristic_type_id)
+                ->get();
     }
 }
