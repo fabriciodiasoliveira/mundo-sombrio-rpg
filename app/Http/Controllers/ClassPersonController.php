@@ -39,8 +39,7 @@ class ClassPersonController extends Controller
     public function edit($id)
     {
         $class = $this->model->get_class_person($id);
-        $characteristics = $this->service->get_all_characteristics_for_class_people($class->id);
-        dd($characteristics);
+        
         return view('class.edit', compact('class'));
     }
     public function update(Request $request, $id)
