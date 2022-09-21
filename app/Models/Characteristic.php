@@ -13,6 +13,11 @@ class Characteristic extends Model
     protected $fillable = [
         'name',
         'description',
+        'class_id',
+        'augury_id',
+        'race_id',
+        'faction_id',
+        'characteristic_type_id',
     ];
     //Métodos básicos
     public function remove($id){

@@ -3,6 +3,7 @@
 namespace App\Http\Services;
 
 use App\Models\Characteristic;
+use App\Models\Faction;
 use App\Models\Class_Person;
 
 class ClassService {
@@ -18,11 +19,13 @@ class ClassService {
     private $virtues = 8;
     //Models
     private $model_characteristics;
+    private $model_faction;
     private $model_class;
 
     public function __construct() {
         $this->model_class = new Class_Person();
         $this->model_characteristics = new Characteristic();
+        $this->model_faction = new Faction();
     }
 
     //Obtendo características do banco de dados
@@ -75,23 +78,26 @@ class ClassService {
         $array['knowledge'] = $knowledge;
         $general = $this->get_all_characteristics_for_characteristic_types($this->general, $class_id);
         $array['general'] = $general;
+        $powers_of_class = $this->get_all_characteristics_powers_for_all_factions_for_class($class_id);
+        $array['powers_of_class'] = $powers_of_class;
+        $factions = $this->model_class->get_all_factions($class_id);
+        $array['factions'] = $factions;
         switch ($class_id) {
             case 1:
                 $virtues = $this->get_all_characteristics_for_characteristic_types($this->virtues, $class_id);
                 $array['virtues'] = $virtues;
                 break;
             case 2:
-                $virtues = $this->get_all_characteristics_for_characteristic_types($this->virtues, $class_id);
-                $array['virtues'] = $virtues;
-                break;
-            case 2:
-                echo "i equals 2";
+                $powers_of_race = $this->get_all_characteristics_powers_for_all_races_of_warewolf();
+                $array['powers_of_race'] = $powers_of_race;
+                $powers_of_augury = $this->get_all_characteristics_powers_for_all_auguries_of_warewolf();
+                $array['powers_of_augury'] = $powers_of_augury;
+                $auguries = $this->model_class->get_all_auguries();
+                $array['auguries'] = $auguries;
+                $races = $this->model_class->get_all_races();
+                $array['races'] = $races;
                 break;
         }
-
-        $general = $this->get_all_characteristics_for_characteristic_types($this->general, $class_id);
-        $array['general'] = $general;
-
         return $array;
     }
 

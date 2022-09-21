@@ -51,12 +51,11 @@ class Class_Person extends Model
             ->select('r.*')
             ->get();
     }
-    public function get_all_factions($id){
+    public function get_all_factions($class_id){
         return DB::table('ms_factions as f')
             ->join('ms_class_people as c', 'c.id', '=', 'f.class_id')
             ->select('c.name', 'f.*')
-            ->where('c.id', '=', $id)
+            ->where('c.id', '=', $class_id)
             ->get();
     }
-    
 }
