@@ -4,6 +4,17 @@
 $class
 $characteristics['physical']
 */
+@php
+//Valores padrão das características
+$physical = 1;
+$mental = 2;
+$social = 3;
+$talents = 4;
+$skills = 5;
+$knowledge = 6;
+$general = 7;
+$virtues = 8;
+@endphp
 <div class="row">
     <div class="text-center col-md-12">
         <h1>Características da classe</h1>
@@ -38,7 +49,7 @@ $characteristics['physical']
                     @endif
                 </div>
             </div>
-            <input type="hidden" name="characteristic_type_id" value="{{  $characteristic->characteristic_type_id }}"/>
+            <input type="hidden" name="characteristic_type_id" value="{{  $physical }}"/>
             <input type="hidden" name="faction_id" value="{{ $characteristic->faction_id }}"/>
             <input type="hidden" name="class_id" value="{{ $class->id }}"/>
             <input type="hidden" name="race_id" value="{{ $characteristic->race_id }}"/>
@@ -80,7 +91,7 @@ $characteristics['physical']
                     @endif
                 </div>
             </div>
-            <input type="hidden" name="characteristic_type_id" value="{{  $characteristic->characteristic_type_id }}"/>
+            <input type="hidden" name="characteristic_type_id" value="{{  $social }}"/>
             <input type="hidden" name="faction_id" value="{{ $characteristic->faction_id }}"/>
             <input type="hidden" name="class_id" value="{{ $class->id }}"/>
             <input type="hidden" name="race_id" value="{{ $characteristic->race_id }}"/>
@@ -121,7 +132,7 @@ $characteristics['physical']
                     @endif
                 </div>
             </div>
-            <input type="hidden" name="characteristic_type_id" value="{{  $characteristic->characteristic_type_id }}"/>
+            <input type="hidden" name="characteristic_type_id" value="{{  $mental }}"/>
             <input type="hidden" name="faction_id" value="{{ $characteristic->faction_id }}"/>
             <input type="hidden" name="class_id" value="{{ $class->id }}"/>
             <input type="hidden" name="race_id" value="{{ $characteristic->race_id }}"/>
@@ -171,7 +182,7 @@ $characteristics['physical']
                     @endif
                 </div>
             </div>
-            <input type="hidden" name="characteristic_type_id" value="{{  $characteristic->characteristic_type_id }}"/>
+            <input type="hidden" name="characteristic_type_id" value="{{  $talents }}"/>
             <input type="hidden" name="faction_id" value="{{ $characteristic->faction_id }}"/>
             <input type="hidden" name="class_id" value="{{ $class->id }}"/>
             <input type="hidden" name="race_id" value="{{ $characteristic->race_id }}"/>
@@ -213,7 +224,7 @@ $characteristics['physical']
                     @endif
                 </div>
             </div>
-            <input type="hidden" name="characteristic_type_id" value="{{  $characteristic->characteristic_type_id }}"/>
+            <input type="hidden" name="characteristic_type_id" value="{{  $skills }}"/>
             <input type="hidden" name="faction_id" value="{{ $characteristic->faction_id }}"/>
             <input type="hidden" name="class_id" value="{{ $class->id }}"/>
             <input type="hidden" name="race_id" value="{{ $characteristic->race_id }}"/>
@@ -254,7 +265,7 @@ $characteristics['physical']
                     @endif
                 </div>
             </div>
-            <input type="hidden" name="characteristic_type_id" value="{{  $characteristic->characteristic_type_id }}"/>
+            <input type="hidden" name="characteristic_type_id" value="{{  $knowledge }}"/>
             <input type="hidden" name="faction_id" value="{{ $characteristic->faction_id }}"/>
             <input type="hidden" name="class_id" value="{{ $class->id }}"/>
             <input type="hidden" name="race_id" value="{{ $characteristic->race_id }}"/>
@@ -304,7 +315,7 @@ $characteristics['physical']
                     @endif
                 </div>
             </div>
-            <input type="hidden" name="characteristic_type_id" value="{{  $characteristic->characteristic_type_id }}"/>
+            <input type="hidden" name="characteristic_type_id" value="{{  $general }}"/>
             <input type="hidden" name="faction_id" value="{{ $characteristic->faction_id }}"/>
             <input type="hidden" name="class_id" value="{{ $class->id }}"/>
             <input type="hidden" name="race_id" value="{{ $characteristic->race_id }}"/>
