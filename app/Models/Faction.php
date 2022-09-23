@@ -15,14 +15,7 @@ class Faction extends Model
         'class_id',
         'image',
     ];
-    
-    public function get_all_factions_for_class_id($class_id)
-    {
-        return Faction::query()->select('*')
-                ->where('class_id', '=', $class_id)
-                ->get();
-    }
-    
+    //Funções comuns
     public function get_all_factions()
     {
         return Faction::query()->select('*')->get();
@@ -44,5 +37,12 @@ class Faction extends Model
     {
         unset($options['_token']);
         return Faction::query()->insertGetId($options);
+    }
+    //Funções especiais
+    public function get_all_factions_for_class_id($class_id)
+    {
+        return Faction::query()->select('*')
+                ->where('class_id', '=', $class_id)
+                ->get();
     }
 }

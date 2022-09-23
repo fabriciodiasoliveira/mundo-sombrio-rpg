@@ -100,5 +100,7 @@ class ClassService {
         }
         return $array;
     }
-
+    public function generate_values_of_card($class_id) {
+        
+    }
 }

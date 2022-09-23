@@ -25,7 +25,7 @@ $virtues = 8;
 <div class="row">
     <div id="physical" class="col-md-4">
         <table class="table table-striped">
-            <div class="text-center"><h2>{{ $characteristics['physical'][0]->characteristic_type_name }} </h2></div>
+            <div class="text-center"><h2>Fisicos</h2></div>
             @foreach($characteristics['physical'] as $characteristic)
                 <tr>
                     <td>
@@ -34,39 +34,10 @@ $virtues = 8;
                 </tr>
             @endforeach
         </table>
-        <form id="form-physical" class="form-horizontal" method="POST" action="">
-            {{ csrf_field() }}
-            
-            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                <label for="name" class="col-md-4 control-label">Nome</label>
-                <div class="col-md-6">
-                    <input id="name" type="text" class="form-control" name="name" required autofocus>
-
-                    @if ($errors->has('name'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('name') }}</strong>
-                    </span>
-                    @endif
-                </div>
-            </div>
-            <input type="hidden" name="characteristic_type_id" value="{{  $physical }}"/>
-            <input type="hidden" name="faction_id" value="{{ $characteristic->faction_id }}"/>
-            <input type="hidden" name="class_id" value="{{ $class->id }}"/>
-            <input type="hidden" name="race_id" value="{{ $characteristic->race_id }}"/>
-            <input type="hidden" name="augury_id" value="{{ $characteristic->augury_id }}"/>
-            
-            <div class="form-group">
-                <div class="col-md-6 col-md-offset-4">
-                    <button type="submit" class="btn btn-primary">
-                        Adicionar
-                    </button>
-                </div>
-            </div>
-        </form>
     </div>
     
     <div id="social" class="col-md-4">
-        <div class="text-center"><h2>{{ $characteristics['social'][0]->characteristic_type_name }} </h2></div>
+        <div class="text-center"><h2>Sociais</h2></div>
         <table class="table table-striped">
             @foreach($characteristics['social'] as $characteristic)
                 <tr>
@@ -76,38 +47,9 @@ $virtues = 8;
                 </tr>
             @endforeach
         </table>
-        <form id="form-social" class="form-horizontal" method="POST" action="">
-            {{ csrf_field() }}
-            
-            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                <label for="name" class="col-md-4 control-label">Nome</label>
-                <div class="col-md-6">
-                    <input id="name" type="text" class="form-control" name="name" required autofocus>
-
-                    @if ($errors->has('name'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('name') }}</strong>
-                    </span>
-                    @endif
-                </div>
-            </div>
-            <input type="hidden" name="characteristic_type_id" value="{{  $social }}"/>
-            <input type="hidden" name="faction_id" value="{{ $characteristic->faction_id }}"/>
-            <input type="hidden" name="class_id" value="{{ $class->id }}"/>
-            <input type="hidden" name="race_id" value="{{ $characteristic->race_id }}"/>
-            <input type="hidden" name="augury_id" value="{{ $characteristic->augury_id }}"/>
-            
-            <div class="form-group">
-                <div class="col-md-6 col-md-offset-4">
-                    <button type="submit" class="btn btn-primary">
-                        Adicionar
-                    </button>
-                </div>
-            </div>
-        </form>
     </div>
     <div id="mental" class="col-md-4">
-        <div class="text-center"><h2>{{ $characteristics['mental'][0]->characteristic_type_name }} </h2></div>
+        <div class="text-center"><h2>Mentais</h2></div>
         <table class="table table-striped">
             @foreach($characteristics['mental'] as $characteristic)
                 <tr>
@@ -117,35 +59,6 @@ $virtues = 8;
                 </tr>
             @endforeach
         </table>
-        <form id="form-mental" class="form-horizontal" method="POST" action="">
-            {{ csrf_field() }}
-            
-            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                <label for="name" class="col-md-4 control-label">Nome</label>
-                <div class="col-md-6">
-                    <input id="name" type="text" class="form-control" name="name" required autofocus>
-
-                    @if ($errors->has('name'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('name') }}</strong>
-                    </span>
-                    @endif
-                </div>
-            </div>
-            <input type="hidden" name="characteristic_type_id" value="{{  $mental }}"/>
-            <input type="hidden" name="faction_id" value="{{ $characteristic->faction_id }}"/>
-            <input type="hidden" name="class_id" value="{{ $class->id }}"/>
-            <input type="hidden" name="race_id" value="{{ $characteristic->race_id }}"/>
-            <input type="hidden" name="augury_id" value="{{ $characteristic->augury_id }}"/>
-            
-            <div class="form-group">
-                <div class="col-md-6 col-md-offset-4">
-                    <button type="submit" class="btn btn-primary">
-                        Adicionar
-                    </button>
-                </div>
-            </div>
-        </form>
     </div>
 </div>
 <!-- =================================================================================================================================-->
@@ -158,7 +71,7 @@ $virtues = 8;
 <div class="row">
     <div id="talents" class="col-md-4">
         <table class="table table-striped">
-            <div class="text-center"><h2>{{ $characteristics['talents'][0]->characteristic_type_name }} </h2></div>
+            <div class="text-center"><h2>Talentos</h2></div>
             @foreach($characteristics['talents'] as $characteristic)
                 <tr>
                     <td>
@@ -167,39 +80,10 @@ $virtues = 8;
                 </tr>
             @endforeach
         </table>
-        <form id="form-talents" class="form-horizontal" method="POST" action="">
-            {{ csrf_field() }}
-            
-            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                <label for="name" class="col-md-4 control-label">Nome</label>
-                <div class="col-md-6">
-                    <input id="name" type="text" class="form-control" name="name" required autofocus>
-
-                    @if ($errors->has('name'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('name') }}</strong>
-                    </span>
-                    @endif
-                </div>
-            </div>
-            <input type="hidden" name="characteristic_type_id" value="{{  $talents }}"/>
-            <input type="hidden" name="faction_id" value="{{ $characteristic->faction_id }}"/>
-            <input type="hidden" name="class_id" value="{{ $class->id }}"/>
-            <input type="hidden" name="race_id" value="{{ $characteristic->race_id }}"/>
-            <input type="hidden" name="augury_id" value="{{ $characteristic->augury_id }}"/>
-            
-            <div class="form-group">
-                <div class="col-md-6 col-md-offset-4">
-                    <button type="submit" class="btn btn-primary">
-                        Adicionar
-                    </button>
-                </div>
-            </div>
-        </form>
     </div>
     
     <div id="skills" class="col-md-4">
-        <div class="text-center"><h2>{{ $characteristics['skills'][0]->characteristic_type_name }} </h2></div>
+        <div class="text-center"><h2>Perícias</h2></div>
         <table class="table table-striped">
             @foreach($characteristics['skills'] as $characteristic)
                 <tr>
@@ -209,38 +93,9 @@ $virtues = 8;
                 </tr>
             @endforeach
         </table>
-        <form id="form-skills" class="form-horizontal" method="POST" action="">
-            {{ csrf_field() }}
-            
-            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                <label for="name" class="col-md-4 control-label">Nome</label>
-                <div class="col-md-6">
-                    <input id="name" type="text" class="form-control" name="name" required autofocus>
-
-                    @if ($errors->has('name'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('name') }}</strong>
-                    </span>
-                    @endif
-                </div>
-            </div>
-            <input type="hidden" name="characteristic_type_id" value="{{  $skills }}"/>
-            <input type="hidden" name="faction_id" value="{{ $characteristic->faction_id }}"/>
-            <input type="hidden" name="class_id" value="{{ $class->id }}"/>
-            <input type="hidden" name="race_id" value="{{ $characteristic->race_id }}"/>
-            <input type="hidden" name="augury_id" value="{{ $characteristic->augury_id }}"/>
-            
-            <div class="form-group">
-                <div class="col-md-6 col-md-offset-4">
-                    <button type="submit" class="btn btn-primary">
-                        Adicionar
-                    </button>
-                </div>
-            </div>
-        </form>
     </div>
     <div id="knowledge" class="col-md-4">
-        <div class="text-center"><h2>{{ $characteristics['knowledge'][0]->characteristic_type_name }} </h2></div>
+        <div class="text-center"><h2>Conhecimentos</h2></div>
         <table class="table table-striped">
             @foreach($characteristics['knowledge'] as $characteristic)
                 <tr>
@@ -250,35 +105,6 @@ $virtues = 8;
                 </tr>
             @endforeach
         </table>
-        <form id="form-knowledge" class="form-horizontal" method="POST" action="">
-            {{ csrf_field() }}
-            
-            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                <label for="name" class="col-md-4 control-label">Nome</label>
-                <div class="col-md-6">
-                    <input id="name" type="text" class="form-control" name="name" required autofocus>
-
-                    @if ($errors->has('name'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('name') }}</strong>
-                    </span>
-                    @endif
-                </div>
-            </div>
-            <input type="hidden" name="characteristic_type_id" value="{{  $knowledge }}"/>
-            <input type="hidden" name="faction_id" value="{{ $characteristic->faction_id }}"/>
-            <input type="hidden" name="class_id" value="{{ $class->id }}"/>
-            <input type="hidden" name="race_id" value="{{ $characteristic->race_id }}"/>
-            <input type="hidden" name="augury_id" value="{{ $characteristic->augury_id }}"/>
-            
-            <div class="form-group">
-                <div class="col-md-6 col-md-offset-4">
-                    <button type="submit" class="btn btn-primary">
-                        Adicionar
-                    </button>
-                </div>
-            </div>
-        </form>
     </div>
 </div>
 <!-- =================================================================================================================================-->
@@ -300,35 +126,6 @@ $virtues = 8;
                 </tr>
             @endforeach
         </table>
-        <form id="form-general" class="form-horizontal" method="POST" action="">
-            {{ csrf_field() }}
-            
-            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                <label for="name" class="col-md-4 control-label">Nome</label>
-                <div class="col-md-6">
-                    <input id="name" type="text" class="form-control" name="name" required autofocus>
-
-                    @if ($errors->has('name'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('name') }}</strong>
-                    </span>
-                    @endif
-                </div>
-            </div>
-            <input type="hidden" name="characteristic_type_id" value="{{  $general }}"/>
-            <input type="hidden" name="faction_id" value="{{ $characteristic->faction_id }}"/>
-            <input type="hidden" name="class_id" value="{{ $class->id }}"/>
-            <input type="hidden" name="race_id" value="{{ $characteristic->race_id }}"/>
-            <input type="hidden" name="augury_id" value="{{ $characteristic->augury_id }}"/>
-            
-            <div class="form-group">
-                <div class="col-md-6 col-md-offset-4">
-                    <button type="submit" class="btn btn-primary">
-                        Adicionar
-                    </button>
-                </div>
-            </div>
-        </form>
     </div>
     
     <div id="powers_of_class" class="col-md-4">
@@ -345,40 +142,6 @@ $virtues = 8;
                 </tr>
             @endforeach
         </table>
-        <form id="form-powers_of_class" class="form-horizontal" method="POST" action="">
-            {{ csrf_field() }}
-            
-            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                <label for="name" class="col-md-4 control-label">Nome</label>
-                <div class="col-md-6">
-                    <input id="name" type="text" class="form-control" name="name" required autofocus>
-
-                    @if ($errors->has('name'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('name') }}</strong>
-                    </span>
-                    @endif
-                </div>
-            </div>
-            <input type="hidden" name="characteristic_type_id" value="{{  $characteristic->characteristic_type_id }}"/>
-            <label for="faction_id" class="col-md-12 control-label">A qual facção esse poder pertence?</label>
-            <select name="faction_id" class="form-select">
-                @foreach($characteristics['factions'] as $faction)
-                <option value="{{ $faction->id }}">{{ $faction->name }}</option>
-                @endforeach
-            </select>
-            <input type="hidden" name="class_id" value="{{ $class->id }}"/>
-            <input type="hidden" name="race_id" value="{{ $characteristic->race_id }}"/>
-            <input type="hidden" name="augury_id" value="{{ $characteristic->augury_id }}"/>
-            
-            <div class="form-group">
-                <div class="col-md-6 col-md-offset-4">
-                    <button type="submit" class="btn btn-primary">
-                        Adicionar
-                    </button>
-                </div>
-            </div>
-        </form>
     </div>
 </div>
 @if($class->id == 2)
@@ -404,40 +167,6 @@ $virtues = 8;
                 </tr>
             @endforeach
         </table>
-        <form id="form-powers_of_augury" class="form-horizontal" method="POST" action="">
-            {{ csrf_field() }}
-            
-            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                <label for="name" class="col-md-4 control-label">Nome</label>
-                <div class="col-md-6">
-                    <input id="name" type="text" class="form-control" name="name" required autofocus>
-
-                    @if ($errors->has('name'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('name') }}</strong>
-                    </span>
-                    @endif
-                </div>
-            </div>
-            <input type="hidden" name="characteristic_type_id" value="{{  $characteristic->characteristic_type_id }}"/>
-            <input type="hidden" name="faction_id" value="{{ $characteristic->faction_id }}"/>
-            <input type="hidden" name="class_id" value="{{ $class->id }}"/>
-            <input type="hidden" name="race_id" value="{{ $characteristic->race_id }}"/>
-            <label for="augury_id" class="col-md-12 control-label">A qual augúrio esse poder pertence?</label>
-            <select name="augury_id" class="form-select">
-                @foreach($characteristics['auguries'] as $augury)
-                <option value="{{ $augury->id }}">{{ $augury->name }}</option>
-                @endforeach
-            </select>
-            
-            <div class="form-group">
-                <div class="col-md-6 col-md-offset-4">
-                    <button type="submit" class="btn btn-primary">
-                        Adicionar
-                    </button>
-                </div>
-            </div>
-        </form>
     </div>
     
     <div id="powers_of_race" class="col-md-4">
@@ -454,40 +183,6 @@ $virtues = 8;
                 </tr>
             @endforeach
         </table>
-        <form id="form-powers_of_race" class="form-horizontal" method="POST" action="">
-            {{ csrf_field() }}
-            
-            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                <label for="name" class="col-md-4 control-label">Nome</label>
-                <div class="col-md-6">
-                    <input id="name" type="text" class="form-control" name="name" required autofocus>
-
-                    @if ($errors->has('name'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('name') }}</strong>
-                    </span>
-                    @endif
-                </div>
-            </div>
-            <input type="hidden" name="characteristic_type_id" value="{{  $characteristic->characteristic_type_id }}"/>
-            <input type="hidden" name="faction_id" value="{{ $characteristic->faction_id }}"/>
-            <input type="hidden" name="class_id" value="{{ $class->id }}"/>
-            <label for="race_id" class="col-md-12 control-label">A qual raça esse poder pertence?</label>
-            <select name="race_id" class="form-select">
-                @foreach($characteristics['races'] as $race)
-                <option value="{{ $race->id }}">{{ $race->name }}</option>
-                @endforeach
-            </select>
-            <input type="hidden" name="augury_id" value="{{ $characteristic->augury_id }}"/>
-            
-            <div class="form-group">
-                <div class="col-md-6 col-md-offset-4">
-                    <button type="submit" class="btn btn-primary">
-                        Adicionar
-                    </button>
-                </div>
-            </div>
-        </form>
     </div>
 </div>
 @endif
