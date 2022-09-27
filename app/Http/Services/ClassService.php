@@ -3,8 +3,10 @@
 namespace App\Http\Services;
 
 use App\Models\Characteristic;
-use App\Models\Faction;
+use App\Models\Characteristic_Stereotype;
 use App\Models\Class_Person;
+use App\Models\Faction;
+use App\Models\Stereotype;
 
 class ClassService {
 
@@ -18,11 +20,15 @@ class ClassService {
     private $general = 7;
     private $virtues = 8;
     //Models
+    private $model_stereotype;
+    private $model_characteristic_stereotype;
     private $model_characteristics;
     private $model_faction;
     private $model_class;
 
     public function __construct() {
+        $this->model_stereotype = new Stereotype();
+        $this->model_characteristic_stereotype = new Characteristic_Stereotype();
         $this->model_class = new Class_Person();
         $this->model_characteristics = new Characteristic();
         $this->model_faction = new Faction();
@@ -99,6 +105,9 @@ class ClassService {
                 break;
         }
         return $array;
+    }
+    public function create_characteristic_stereotype($class_id){
+        
     }
     public function generate_values_of_card($class_id) {
         

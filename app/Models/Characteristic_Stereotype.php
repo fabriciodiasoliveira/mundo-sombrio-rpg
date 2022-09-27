@@ -39,7 +39,7 @@ class Characteristic_Stereotype extends Model
         return Characteristic_Stereotype::query()->insertGetId($options);
     }
     //Funções especiais
-    public function get_all_values_of_characteristics($class_id){
+    public function get_all_characteristic_stereotype_of_characteristics($class_id){
         return DB::table('ms_auguries as a')
             ->select('a.*')
             ->get();
