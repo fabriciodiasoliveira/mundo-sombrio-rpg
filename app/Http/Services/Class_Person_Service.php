@@ -8,7 +8,7 @@ use App\Models\Class_Person;
 use App\Models\Faction;
 use App\Models\Stereotype;
 
-class ClassService {
+class Class_PersonService {
 
     //Valores padrão das características
     private $physical = 1;

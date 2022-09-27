@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Services\ClassService;
+use App\Http\Services\Class_Person_Service;
 use App\Models\Class_Person;
 use Illuminate\Http\Request;
 
@@ -12,7 +12,7 @@ class ClassPersonController extends Controller
     private $service;
     public function __construct() {
         $this->model = new Class_Person();
-        $this->service = new ClassService();
+        $this->service = new Class_Person_Service();
     }
 
     public function index()

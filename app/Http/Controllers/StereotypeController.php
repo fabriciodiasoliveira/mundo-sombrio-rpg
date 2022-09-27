@@ -2,84 +2,53 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\Stereotype_Service;
 use App\Models\Stereotype;
 use Illuminate\Http\Request;
 
 class StereotypeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    private $model_stereotype;
+    private $service;
+    public function __construct() {
+        $this->model_stereotype = new Stereotype();
+        $this->service = new Stereotype_Service();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+     public function index()
+    {
+        $stereotypes = $this->model_stereotype->get_all_class_persons();
+        return view('stereotype.index', compact('stereotypes'));
+    }
     public function create()
     {
-        //
+        return view('stereotype.create');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $options = $request->all();
+        $this->model_stereotype->store($options);
+        return redirect()->route('admin.stereotype')->with('success', 'Um estereótipo inserido.');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Stereotype  $stereotype
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Stereotype $stereotype)
+    public function show($id)
     {
-        //
+        $stereotype = $this->model_stereotype->get_class_person($id);
+        return view('stereotype.show', compact('stereotype'));
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Stereotype  $stereotype
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Stereotype $stereotype)
+    public function edit($id)
     {
-        //
+        $stereotype = $this->model_stereotype->get_class_person($id);
+        return view('stereotype.edit', compact('stereotype'));
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Stereotype  $stereotype
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Stereotype $stereotype)
+    public function update(Request $request, $id)
     {
-        //
+        $options = $request->all();
+        $this->model_stereotype->update_wingout_model($id, $options);
+        return redirect()->route('admin.stereotype')->with('success', 'Um estereótipo alterado.');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Stereotype  $stereotype
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Stereotype $stereotype)
+    public function destroy($id)
     {
-        //
+        $this->model_stereotype->remove($id);
+        return redirect()->route('admin.stereotype')->with('success', 'Um estereótipo removido.');
     }
 }

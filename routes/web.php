@@ -35,4 +35,12 @@ Route::group(['middleware' => 'App\Http\Middleware\IsAdmin'], function() {
    Route::delete('/admin/class/delete/{id}', [App\Http\Controllers\ClassPersonController::class, 'destroy'])->name('admin.class.destroy');
    Route::get('/admin/class/edit/{id}', [App\Http\Controllers\ClassPersonController::class, 'edit'])->name('admin.class.edit');
    Route::put('/admin/class/update/{id}', [App\Http\Controllers\ClassPersonController::class, 'update'])->name('admin.class.update');
+   
+   //Stereotype
+   Route::get('/admin/stereotype', [App\Http\Controllers\StereotypeController::class, 'index'])->name('admin.stereotype');
+   Route::get('/admin/stereotype/create/', [App\Http\Controllers\StereotypeController::class, 'create'])->name('admin.stereotype.create');
+   Route::post('/admin/stereotype', [App\Http\Controllers\StereotypeController::class, 'store'])->name('admin.stereotype.store');
+   Route::delete('/admin/stereotype/delete/{id}', [App\Http\Controllers\StereotypeController::class, 'destroy'])->name('admin.stereotype.destroy');
+   Route::get('/admin/stereotype/edit/{id}', [App\Http\Controllers\StereotypeController::class, 'edit'])->name('admin.stereotype.edit');
+   Route::put('/admin/stereotype/update/{id}', [App\Http\Controllers\StereotypeController::class, 'update'])->name('admin.stereotype.update');
 });
