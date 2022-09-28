@@ -43,4 +43,5 @@ Route::group(['middleware' => 'App\Http\Middleware\IsAdmin'], function() {
    Route::delete('/admin/stereotype/delete/{id}', [App\Http\Controllers\StereotypeController::class, 'destroy'])->name('admin.stereotype.destroy');
    Route::get('/admin/stereotype/edit/{id}', [App\Http\Controllers\StereotypeController::class, 'edit'])->name('admin.stereotype.edit');
    Route::put('/admin/stereotype/update/{id}', [App\Http\Controllers\StereotypeController::class, 'update'])->name('admin.stereotype.update');
+   Route::get('/admin/stereotype/show/{id}', [App\Http\Controllers\StereotypeController::class, 'show'])->name('admin.stereotype.show');
 });

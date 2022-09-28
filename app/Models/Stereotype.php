@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Stereotype extends Model
 {
@@ -13,7 +14,7 @@ class Stereotype extends Model
         'name',
         'description',
         'class_id',
-        'image',
+        'public',
     ];
     //Funções comuns
     public function get_all_stereotypes()
@@ -37,5 +38,13 @@ class Stereotype extends Model
     {
         unset($options['_token']);
         return Stereotype::query()->insertGetId($options);
+    }
+    
+    //Métodos especiais
+     public function get_all_stereotypes_with_class_information(){
+        return DB::table('ms_stereotypes as st')
+                ->join('ms_class_people as c', 'c.id', '=', 'st.class_id')
+                ->select('c.name as class_name','c.description as class_description', 'st.*')
+                ->get();
     }
 }

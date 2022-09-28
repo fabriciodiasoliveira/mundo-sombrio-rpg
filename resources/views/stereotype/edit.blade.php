@@ -9,8 +9,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Editando</h5>
                     <p class="card-text">Edite a classe.</p>
-                        @component('components.class.class', compact('class'))@endcomponent
-                        @component('components.characteristic.characteristic', compact('class', 'characteristics'))@endcomponent
+                        @component('components.stereotype.stereotype', compact('stereotype'))@endcomponent
                 </div>
             </div>
         </div>

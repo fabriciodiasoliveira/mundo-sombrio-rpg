@@ -3,41 +3,46 @@
 namespace App\Http\Controllers;
 
 use App\Http\Services\Stereotype_Service;
+use App\Models\Class_Person;
 use App\Models\Stereotype;
 use Illuminate\Http\Request;
 
 class StereotypeController extends Controller
 {
     private $model_stereotype;
+    private $model_class;
     private $service;
     public function __construct() {
         $this->model_stereotype = new Stereotype();
+        $this->model_class = new Class_Person();
         $this->service = new Stereotype_Service();
     }
 
      public function index()
     {
-        $stereotypes = $this->model_stereotype->get_all_class_persons();
+        $stereotypes = $this->model_stereotype->get_all_stereotypes_with_class_information();
         return view('stereotype.index', compact('stereotypes'));
     }
     public function create()
     {
-        return view('stereotype.create');
+        $classes = $this->model_class->get_all_class_persons();
+        return view('stereotype.create', compact('classes'));
     }
     public function store(Request $request)
     {
         $options = $request->all();
-        $this->model_stereotype->store($options);
-        return redirect()->route('admin.stereotype')->with('success', 'Um estereótipo inserido.');
+        $id = $this->model_stereotype->store($options);
+        $stereotype = $this->model_stereotype->get_stereotype($id);
+        return redirect()->route('admin.stereotype.edit', $stereotype->id)->with('success', 'Um estereótipo inserido.');
     }
     public function show($id)
     {
-        $stereotype = $this->model_stereotype->get_class_person($id);
+        $stereotype = $this->model_stereotype->get_stereotype($id);
         return view('stereotype.show', compact('stereotype'));
     }
     public function edit($id)
     {
-        $stereotype = $this->model_stereotype->get_class_person($id);
+        $stereotype = $this->model_stereotype->get_stereotype($id);
         return view('stereotype.edit', compact('stereotype'));
     }
     public function update(Request $request, $id)

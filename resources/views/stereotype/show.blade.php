@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            @component('components.class.show', compact ('class', 'factions'))@endcomponent
+            @component('components.stereotype.show', compact ('stereotype'))@endcomponent
         </div>
     </div>
 </div>
