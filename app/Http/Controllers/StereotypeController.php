@@ -10,11 +10,11 @@ use Illuminate\Http\Request;
 class StereotypeController extends Controller
 {
     private $model_stereotype;
-    private $model_class;
+    private $model_class_person;
     private $service;
     public function __construct() {
         $this->model_stereotype = new Stereotype();
-        $this->model_class = new Class_Person();
+        $this->model_class_person = new Class_Person();
         $this->service = new Stereotype_Service();
     }
 
@@ -25,7 +25,7 @@ class StereotypeController extends Controller
     }
     public function create()
     {
-        $classes = $this->model_class->get_all_class_persons();
+        $classes = $this->model_class_person->get_all_class_persons();
         return view('stereotype.create', compact('classes'));
     }
     public function store(Request $request)
@@ -44,13 +44,16 @@ class StereotypeController extends Controller
     public function edit($id)
     {
         $stereotype = $this->model_stereotype->get_stereotype($id);
-        return view('stereotype.edit', compact('stereotype'));
+        $factions = $this->service->get_all_factions($id);
+        $class = $this->model_class_person->get_class_person($stereotype->class_id);
+        return view('stereotype.edit', compact('stereotype', 'factions', 'class'));
     }
     public function update(Request $request, $id)
     {
         $options = $request->all();
         $this->model_stereotype->update_wingout_model($id, $options);
-        return redirect()->route('admin.stereotype')->with('success', 'Um estereótipo alterado.');
+        $stereotype = $this->model_stereotype->get_stereotype($id);
+        return redirect()->route('admin.stereotype.edit', $stereotype->id)->with('success', 'Um estereótipo alterado.');
     }
     public function destroy($id)
     {

@@ -8,7 +8,7 @@ use App\Models\Class_Person;
 use App\Models\Faction;
 use App\Models\Stereotype;
 
-class Class_PersonService {
+class Class_Person_Service {
 
     //Valores padrão das características
     private $physical = 1;
@@ -24,12 +24,12 @@ class Class_PersonService {
     private $model_characteristic_stereotype;
     private $model_characteristics;
     private $model_faction;
-    private $model_class;
+    private $model_class_person;
 
     public function __construct() {
         $this->model_stereotype = new Stereotype();
         $this->model_characteristic_stereotype = new Characteristic_Stereotype();
-        $this->model_class = new Class_Person();
+        $this->model_class_person = new Class_Person();
         $this->model_characteristics = new Characteristic();
         $this->model_faction = new Faction();
     }
@@ -86,7 +86,7 @@ class Class_PersonService {
         $array['general'] = $general;
         $powers_of_class = $this->get_all_characteristics_powers_for_all_factions_for_class($class_id);
         $array['powers_of_class'] = $powers_of_class;
-        $factions = $this->model_class->get_all_factions($class_id);
+        $factions = $this->model_class_person->get_all_factions($class_id);
         $array['factions'] = $factions;
         switch ($class_id) {
             case 1:
@@ -98,9 +98,9 @@ class Class_PersonService {
                 $array['powers_of_race'] = $powers_of_race;
                 $powers_of_augury = $this->get_all_characteristics_powers_for_all_auguries_of_warewolf();
                 $array['powers_of_augury'] = $powers_of_augury;
-                $auguries = $this->model_class->get_all_auguries();
+                $auguries = $this->model_class_person->get_all_auguries();
                 $array['auguries'] = $auguries;
-                $races = $this->model_class->get_all_races();
+                $races = $this->model_class_person->get_all_races();
                 $array['races'] = $races;
                 break;
         }
