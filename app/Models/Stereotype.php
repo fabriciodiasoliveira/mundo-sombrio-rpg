@@ -15,8 +15,9 @@ class Stereotype extends Model
         'description',
         'class_id',
         'public',
+        'generated',
     ];
-    //Funções comuns
+    //Métodos comuns
     public function get_all_stereotypes()
     {
         return Stereotype::query()->select('*')->get();

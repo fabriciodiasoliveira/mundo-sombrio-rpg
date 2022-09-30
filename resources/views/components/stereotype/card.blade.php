@@ -9,23 +9,29 @@
     <div id="physical" class="col-md-4">
         <table class="table table-striped">
             <div class="text-center"><h2>Fisicos</h2></div>
-            @foreach($characteristics['physical'] as $characteristic)
+            @foreach($card['physical'] as $characteristic)
                 <tr>
                     <td>
-                        {{ $characteristic->name }}
+                        {{ $characteristic->characteristic_name }}
+                    </td>
+                    <td>
+                        {{ $characteristic->value }}
                     </td>
                 </tr>
             @endforeach
         </table>
     </div>
-    
+
     <div id="social" class="col-md-4">
         <div class="text-center"><h2>Sociais</h2></div>
         <table class="table table-striped">
-            @foreach($characteristics['social'] as $characteristic)
+            @foreach($card['social'] as $characteristic)
                 <tr>
                     <td>
-                        {{ $characteristic->name }}
+                        {{ $characteristic->characteristic_name }}
+                    </td>
+                    <td>
+                        {{ $characteristic->value }}
                     </td>
                 </tr>
             @endforeach
@@ -34,10 +40,13 @@
     <div id="mental" class="col-md-4">
         <div class="text-center"><h2>Mentais</h2></div>
         <table class="table table-striped">
-            @foreach($characteristics['mental'] as $characteristic)
+            @foreach($card['mental'] as $characteristic)
                 <tr>
                     <td>
-                        {{ $characteristic->name }}
+                        {{ $characteristic->characteristic_name }}
+                    </td>
+                    <td>
+                        {{ $characteristic->value }}
                     </td>
                 </tr>
             @endforeach
@@ -55,23 +64,29 @@
     <div id="talents" class="col-md-4">
         <table class="table table-striped">
             <div class="text-center"><h2>Talentos</h2></div>
-            @foreach($characteristics['talents'] as $characteristic)
+            @foreach($card['talents'] as $characteristic)
                 <tr>
                     <td>
-                        {{ $characteristic->name }}
+                        {{ $characteristic->characteristic_name }}
+                    </td>
+                    <td>
+                        {{ $characteristic->value }}
                     </td>
                 </tr>
             @endforeach
         </table>
     </div>
-    
+
     <div id="skills" class="col-md-4">
         <div class="text-center"><h2>Perícias</h2></div>
         <table class="table table-striped">
-            @foreach($characteristics['skills'] as $characteristic)
+            @foreach($card['skills'] as $characteristic)
                 <tr>
                     <td>
-                        {{ $characteristic->name }}
+                        {{ $characteristic->characteristic_name }}
+                    </td>
+                    <td>
+                        {{ $characteristic->value }}
                     </td>
                 </tr>
             @endforeach
@@ -80,10 +95,13 @@
     <div id="knowledge" class="col-md-4">
         <div class="text-center"><h2>Conhecimentos</h2></div>
         <table class="table table-striped">
-            @foreach($characteristics['knowledge'] as $characteristic)
+            @foreach($card['knowledge'] as $characteristic)
                 <tr>
                     <td>
-                        {{ $characteristic->name }}
+                        {{ $characteristic->characteristic_name }}
+                    </td>
+                    <td>
+                        {{ $characteristic->value }}
                     </td>
                 </tr>
             @endforeach
@@ -101,33 +119,36 @@
     <div id="general" class="col-md-4">
         <table class="table table-striped">
             <div class="text-center"><h2>Características genéricas</h2></div>
-            @foreach($characteristics['general'] as $characteristic)
+            @foreach($card['general'] as $characteristic)
                 <tr>
                     <td>
-                        {{ $characteristic->name }}
+                        {{ $characteristic->characteristic_name }}
+                    </td>
+                    <td>
+                        {{ $characteristic->value }}
                     </td>
                 </tr>
             @endforeach
         </table>
     </div>
-    
-    <div id="powers_of_class" class="col-md-4">
+
+    <div id="powers_of_faction" class="col-md-4">
         <div class="text-center"><h2>Poderes </h2></div>
         <table class="table table-striped">
-            @foreach($characteristics['powers_of_class'] as $characteristic)
+            @foreach($card['powers_of_faction'] as $characteristic)
                 <tr>
                     <td>
-                        {{ $characteristic->name }}
+                        {{ $characteristic->characteristic_name }}
                     </td>
                     <td>
-                        {{ $characteristic->faction_name }}
+                        {{ $characteristic->value }}
                     </td>
                 </tr>
             @endforeach
         </table>
     </div>
 </div>
-@if($class->id == 2)
+@if($card['class_person']->id == 2)
 <!-- =================================================================================================================================-->
 <div class="row">
     <div class="text-center col-md-12">
@@ -139,29 +160,29 @@
     <div id="powers_of_augury" class="col-md-4">
         <table class="table table-striped">
             <div class="text-center"><h2>Poderes oriundos do augúrio </h2></div>
-            @foreach($characteristics['powers_of_augury'] as $characteristic)
+            @foreach($card['powers_of_augury'] as $characteristic)
                 <tr>
                     <td>
-                        {{ $characteristic->name }}
+                        {{ $characteristic->characteristic_name }}
                     </td>
                     <td>
-                        {{ $characteristic->augury_name }}
+                        {{ $characteristic->value }}
                     </td>
                 </tr>
             @endforeach
         </table>
     </div>
-    
+
     <div id="powers_of_race" class="col-md-4">
         <div class="text-center"><h2>Poderes oriundos da raça </h2></div>
         <table class="table table-striped">
-            @foreach($characteristics['powers_of_race'] as $characteristic)
+            @foreach($card['powers_of_race'] as $characteristic)
                 <tr>
                     <td>
-                        {{ $characteristic->name }}
+                        {{ $characteristic->characteristic_name }}
                     </td>
                     <td>
-                        {{ $characteristic->race_name }}
+                        {{ $characteristic->value }}
                     </td>
                 </tr>
             @endforeach

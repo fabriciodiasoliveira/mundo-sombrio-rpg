@@ -9,6 +9,7 @@ use App\Models\Faction;
 use App\Models\Stereotype;
 
 class Stereotype_Service {
+
     //Valores padrão das características
     private $physical = 1;
     private $mental = 2;
@@ -24,7 +25,7 @@ class Stereotype_Service {
     private $model_characteristic_stereotype;
     private $model_factions;
     private $model_class_person;
-    
+
     public function __construct() {
         $this->model_stereotype = new Stereotype();
         $this->model_characteristic_stereotype = new Characteristic_Stereotype();
@@ -32,12 +33,12 @@ class Stereotype_Service {
         $this->model_factions = new Faction();
         $this->model_class_person = new Class_Person();
     }
-    
-    public function create_new_characteristic_stereotypes($stereotype_id){
+
+    public function create_new_characteristic_stereotypes($stereotype_id) {
         $stereotype = $this->model_stereotype->get_stereotype($stereotype_id);
         $class_id = $stereotype->class_id;
         $characterystics = $this->model_characteristic->get_all_characteristics_for_class_people($class_id);
-        foreach($characterystics as $characterystic){
+        foreach ($characterystics as $characterystic) {
             $array = [];
             $array['characteristic_id'] = $characterystic->id;
             $array['stereotype_id'] = $stereotype->id;
@@ -45,12 +46,17 @@ class Stereotype_Service {
             $this->model_characteristic_stereotype->store($array);
         }
     }
+
     //Obtendo características por classe separadamente
-    public function get_all_characteristic_stereotypes_for_card($stereotype_id) {
+    public function get_all_characteristic_stereotypes_for_generic_card($stereotype_id, $faction_id) {
         $stereotype = $this->model_stereotype->get_stereotype($stereotype_id);
-        $class = $this->model_class_person->get_class_person($stereotype->class_id);
-        $class_id = $class->id;
+        $class_person = $this->model_class_person->get_class_person($stereotype->class_id);
+        $faction = $this->model_factions->get_faction($faction_id);
+        $class_id = $class_person->id;
         $array = [];
+        $array['faction'] = $faction;
+        $array['class_person'] = $class_person;
+        $array['stereotype'] = $stereotype;
         $physical = $this->model_characteristic_stereotype->get_all_characteristic_stereotypes_for_characteristic_types($this->physical, $class_id);
         $array['physical'] = $physical;
         $mental = $this->model_characteristic_stereotype->get_all_characteristic_stereotypes_for_characteristic_types($this->mental, $class_id);
@@ -65,10 +71,16 @@ class Stereotype_Service {
         $array['knowledge'] = $knowledge;
         $general = $this->model_characteristic_stereotype->get_all_characteristic_stereotypes_for_characteristic_types($this->general, $class_id);
         $array['general'] = $general;
-        $powers_of_class = $this->model_characteristic_stereotype->get_all_characteristic_stereotypes_powers_for_all_factions_for_class($class_id);
-        $array['powers_of_class'] = $powers_of_class;
-        $factions = $this->model_class_person->get_all_factions($class_id);
-        $array['factions'] = $factions;
+        $powers_of_class = $this->model_characteristic_stereotype->get_all_characteristic_stereotypes_for_factions($faction_id);
+        $array['powers_of_faction'] = $powers_of_class;
+        return $array;
+    }
+
+    public function get_all_characteristic_stereotypes_for_card($stereotype_id, $faction_id) {
+        $stereotype = $this->model_stereotype->get_stereotype($stereotype_id);
+        $class_person = $this->model_class_person->get_class_person($stereotype->class_id);
+        $class_id = $class_person->id;
+        $array = $this->get_all_characteristic_stereotypes_for_generic_card($stereotype_id, $faction_id);
         switch ($class_id) {
             case 1:
                 $virtues = $this->model_characteristic_stereotype->get_all_characteristic_stereotypes_for_characteristic_types($this->virtues, $class_id);
@@ -87,6 +99,7 @@ class Stereotype_Service {
         }
         return $array;
     }
+
     public function get_all_factions($stereotype_id) {
         $stereotype = $this->model_stereotype->get_stereotype($stereotype_id);
         $class = $this->model_class_person->get_class_person($stereotype->class_id);
@@ -94,4 +107,5 @@ class Stereotype_Service {
         $factions = $this->model_class_person->get_all_factions($class_id);
         return $factions;
     }
+
 }

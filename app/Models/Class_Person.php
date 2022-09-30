@@ -17,7 +17,7 @@ class Class_Person extends Model
         'little_description',
         'image',
     ];
-    //Funções comuns
+    //Métodos comuns
     public function get_all_class_persons()
     {
         return Class_Person::query()->select('*')->get();
@@ -40,7 +40,7 @@ class Class_Person extends Model
         unset($options['_token']);
         return Class_Person::query()->insertGetId($options);
     }
-    //Funções especiais
+    //Métodos especiais
     public function get_all_auguries(){
         return DB::table('ms_auguries as a')
             ->select('a.*')

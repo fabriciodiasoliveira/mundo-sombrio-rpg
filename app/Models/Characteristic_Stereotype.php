@@ -16,7 +16,7 @@ class Characteristic_Stereotype extends Model
         'class_id',
         'image',
     ];
-    //Funções comuns
+    //Métodos comuns
     public function get_all_characteristic_Stereotypes()
     {
         return Characteristic_Stereotype::query()->select('*')->get();
@@ -39,7 +39,7 @@ class Characteristic_Stereotype extends Model
         unset($options['_token']);
         return Characteristic_Stereotype::query()->insertGetId($options);
     }
-    //Funções especiais
+    //Métodos especiais
      public function get_all_characteristic_stereotypes_for_class_people($class_id){
         return DB::table('ms_characteristics as ch')
                 ->join('ms_class_people as c', 'c.id', '=', 'ch.class_id')

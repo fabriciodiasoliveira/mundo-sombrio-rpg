@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class StereotypeController extends Controller
 {
+    //
     private $model_stereotype;
     private $model_class_person;
     private $service;
@@ -46,7 +47,14 @@ class StereotypeController extends Controller
         $stereotype = $this->model_stereotype->get_stereotype($id);
         $factions = $this->service->get_all_factions($id);
         $class = $this->model_class_person->get_class_person($stereotype->class_id);
-        return view('stereotype.edit', compact('stereotype', 'factions', 'class'));
+        if($stereotype->faction_id == 0){
+            return view('stereotype.edit', compact('stereotype', 'factions', 'class'));
+        }
+        else{
+            $stereotype_id = $stereotype->id;
+            $faction_id = $stereotype->faction_id;
+            return redirect()->route('admin.stereotype.edit_card', ['stereotype_id'=>$stereotype_id, 'faction_id'=>$faction_id])->with('success', 'Um estereótipo alterado.');
+        }
     }
     public function update(Request $request, $id)
     {
@@ -59,5 +67,19 @@ class StereotypeController extends Controller
     {
         $this->model_stereotype->remove($id);
         return redirect()->route('admin.stereotype')->with('success', 'Um estereótipo removido.');
+    }
+    //Demais métodos
+    
+    public function edit_card($stereotype_id, $faction_id){
+        $array = [];
+        $stereotype = $this->model_stereotype->get_stereotype($stereotype_id);
+        $card = $this->service->get_all_characteristic_stereotypes_for_card($stereotype_id, $faction_id);
+        if($stereotype->generated == 0){
+            $this->service->create_new_characteristic_stereotypes($stereotype_id);
+            $array['generated'] = 1;
+            $array['faction_id'] = $faction_id;
+            $this->model_stereotype->update_wingout_model($stereotype_id, $array);
+        }
+        return view('stereotype.edit_card', compact('card'));
     }
 }

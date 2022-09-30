@@ -13,7 +13,9 @@
                     <h5 class="card-title">Editando</h5>
                     <p class="card-text">Edite o estereótipo</p>
                         @component('components.stereotype.stereotype', compact('stereotype', 'class'))@endcomponent
-                        @component('components.stereotype.factions', compact('factions'))@endcomponent
+                        @if($stereotype->generated == 0)
+                            @component('components.stereotype.factions', compact('factions', 'stereotype'))@endcomponent
+                        @endif
                 </div>
             </div>
         </div>
