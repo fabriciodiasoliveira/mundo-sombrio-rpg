@@ -14,8 +14,13 @@
                     <td>
                         {{ $characteristic->characteristic_name }}
                     </td>
+                    <td id="{{ $characteristic->characteristic_id }}">
+                        @for($i=0;$i < $characteristic->value; $i++) o @endfor
+                    </td>
                     <td>
-                        {{ $characteristic->value }}
+                        <input id="value-{{ $characteristic->characteristic_id }}" type="hidden" ame="value-{{ $characteristic->characteristic_id }}" value="{{ $characteristic->value }}"/>
+                        <input class="btn btn-primary" type="button" value="+"/>
+                        <input class="btn btn-primary" type="button" value="-"/>
                     </td>
                 </tr>
             @endforeach
@@ -30,8 +35,13 @@
                     <td>
                         {{ $characteristic->characteristic_name }}
                     </td>
+                    <td id="{{ $characteristic->characteristic_id }}">
+                        @for($i=0;$i < $characteristic->value; $i++) o @endfor
+                    </td>
                     <td>
-                        {{ $characteristic->value }}
+                        <input id="value-{{ $characteristic->characteristic_id }}" type="hidden" ame="value-{{ $characteristic->characteristic_id }}" value="{{ $characteristic->value }}"/>
+                        <input class="btn btn-primary" type="button" value="+"/>
+                        <input class="btn btn-primary" type="button" value="-"/>
                     </td>
                 </tr>
             @endforeach
@@ -45,8 +55,13 @@
                     <td>
                         {{ $characteristic->characteristic_name }}
                     </td>
+                    <td id="{{ $characteristic->characteristic_id }}">
+                        @for($i=0;$i < $characteristic->value; $i++) o @endfor
+                    </td>
                     <td>
-                        {{ $characteristic->value }}
+                        <input id="value-{{ $characteristic->characteristic_id }}" type="hidden" ame="value-{{ $characteristic->characteristic_id }}" value="{{ $characteristic->value }}"/>
+                        <input class="btn btn-primary" type="button" value="+"/>
+                        <input class="btn btn-primary" type="button" value="-"/>
                     </td>
                 </tr>
             @endforeach
@@ -69,8 +84,13 @@
                     <td>
                         {{ $characteristic->characteristic_name }}
                     </td>
+                    <td id="{{ $characteristic->characteristic_id }}">
+                        @for($i=0;$i < $characteristic->value; $i++) o @endfor
+                    </td>
                     <td>
-                        {{ $characteristic->value }}
+                        <input id="value-{{ $characteristic->characteristic_id }}" type="hidden" ame="value-{{ $characteristic->characteristic_id }}" value="{{ $characteristic->value }}"/>
+                        <input class="btn btn-primary" type="button" value="+"/>
+                        <input class="btn btn-primary" type="button" value="-"/>
                     </td>
                 </tr>
             @endforeach
@@ -85,8 +105,13 @@
                     <td>
                         {{ $characteristic->characteristic_name }}
                     </td>
+                    <td id="{{ $characteristic->characteristic_id }}">
+                        @for($i=0;$i < $characteristic->value; $i++) o @endfor
+                    </td>
                     <td>
-                        {{ $characteristic->value }}
+                        <input id="value-{{ $characteristic->characteristic_id }}" type="hidden" ame="value-{{ $characteristic->characteristic_id }}" value="{{ $characteristic->value }}"/>
+                        <input class="btn btn-primary" type="button" value="+"/>
+                        <input class="btn btn-primary" type="button" value="-"/>
                     </td>
                 </tr>
             @endforeach
@@ -100,8 +125,13 @@
                     <td>
                         {{ $characteristic->characteristic_name }}
                     </td>
+                    <td id="{{ $characteristic->characteristic_id }}">
+                        @for($i=0;$i < $characteristic->value; $i++) o @endfor
+                    </td>
                     <td>
-                        {{ $characteristic->value }}
+                        <input id="value-{{ $characteristic->characteristic_id }}" type="hidden" ame="value-{{ $characteristic->characteristic_id }}" value="{{ $characteristic->value }}"/>
+                        <input class="btn btn-primary" type="button" value="+"/>
+                        <input class="btn btn-primary" type="button" value="-"/>
                     </td>
                 </tr>
             @endforeach
@@ -124,8 +154,8 @@
                     <td>
                         {{ $characteristic->characteristic_name }}
                     </td>
-                    <td>
-                        {{ $characteristic->value }}
+                    <td id="{{ $characteristic->characteristic_id }}">
+                        @for($i=0;$i < $characteristic->value; $i++) o @endfor
                     </td>
                 </tr>
             @endforeach
@@ -137,11 +167,16 @@
         <table class="table table-striped">
             @foreach($card['powers_of_faction'] as $characteristic)
                 <tr>
-                    <td>
+                    <td id="{{ $characteristic->characteristic_id }}">
                         {{ $characteristic->characteristic_name }}
                     </td>
                     <td>
-                        {{ $characteristic->value }}
+                        @for($i=0;$i < $characteristic->value; $i++) o @endfor
+                    </td>
+                    <td>
+                        <input id="value-{{ $characteristic->characteristic_id }}" type="hidden" ame="value-{{ $characteristic->characteristic_id }}" value="{{ $characteristic->value }}"/>
+                        <input class="btn btn-primary" type="button" value="+"/>
+                        <input class="btn btn-primary" type="button" value="-"/>
                     </td>
                 </tr>
             @endforeach
@@ -165,8 +200,13 @@
                     <td>
                         {{ $characteristic->characteristic_name }}
                     </td>
+                    <td id="{{ $characteristic->characteristic_id }}">
+                        @for($i=0;$i < $characteristic->value; $i++) o @endfor
+                    </td>
                     <td>
-                        {{ $characteristic->value }}
+                        <input id="value-{{ $characteristic->characteristic_id }}" type="hidden" ame="value-{{ $characteristic->characteristic_id }}" value="{{ $characteristic->value }}"/>
+                        <input class="btn btn-primary" type="button" value="+"/>
+                        <input class="btn btn-primary" type="button" value="-"/>
                     </td>
                 </tr>
             @endforeach
@@ -181,8 +221,13 @@
                     <td>
                         {{ $characteristic->characteristic_name }}
                     </td>
+                    <td id="{{ $characteristic->characteristic_id }}">
+                        @for($i=0;$i < $characteristic->value; $i++) o @endfor
+                    </td>
                     <td>
-                        {{ $characteristic->value }}
+                        <input id="value-{{ $characteristic->characteristic_id }}" type="hidden" ame="value-{{ $characteristic->characteristic_id }}" value="{{ $characteristic->value }}"/>
+                        <input class="btn btn-primary" type="button" value="+"/>
+                        <input class="btn btn-primary" type="button" value="-"/>
                     </td>
                 </tr>
             @endforeach
