@@ -1,3 +1,6 @@
+@php
+    $character = '*';
+@endphp
 <div class="row">
     <div class="text-center col-md-12">
         <h1>Características da classe</h1>
@@ -14,13 +17,17 @@
                     <td>
                         {{ $characteristic->characteristic_name }}
                     </td>
-                    <td id="{{ $characteristic->characteristic_id }}">
-                        @for($i=0;$i < $characteristic->value; $i++) o @endfor
+                    <td id="td-{{ $characteristic->id }}">
+                         @for($i=0;$i < $characteristic->value; $i++) {{ $character }} @endfor
                     </td>
                     <td>
-                        <input id="value-{{ $characteristic->characteristic_id }}" type="hidden" ame="value-{{ $characteristic->characteristic_id }}" value="{{ $characteristic->value }}"/>
-                        <input class="btn btn-primary" type="button" value="+"/>
-                        <input class="btn btn-primary" type="button" value="-"/>
+                        <form id="form-{{ $characteristic->id }}">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="name" value="{{ $characteristic->characteristic_name }}" />
+                            <input id="value-{{ $characteristic->id }}" type="hidden" name="value" value="{{ $characteristic->value }}"/>
+                            <input class="btn btn-primary" type="button" value="+" onclick="add_value({{ $characteristic->id }}, '{{ $character }}')"/>
+                            <input class="btn btn-primary" type="button" value="-"/>
+                        </form>
                     </td>
                 </tr>
             @endforeach
@@ -35,13 +42,17 @@
                     <td>
                         {{ $characteristic->characteristic_name }}
                     </td>
-                    <td id="{{ $characteristic->characteristic_id }}">
-                        @for($i=0;$i < $characteristic->value; $i++) o @endfor
+                    <td id="td-{{ $characteristic->id }}">
+                        @for($i=0;$i < $characteristic->value; $i++) {{ $character }} @endfor
                     </td>
                     <td>
-                        <input id="value-{{ $characteristic->characteristic_id }}" type="hidden" ame="value-{{ $characteristic->characteristic_id }}" value="{{ $characteristic->value }}"/>
-                        <input class="btn btn-primary" type="button" value="+"/>
-                        <input class="btn btn-primary" type="button" value="-"/>
+                        <form id="form-{{ $characteristic->id }}">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="name" value="{{ $characteristic->characteristic_name }}" />
+                            <input id="value-{{ $characteristic->id }}" type="hidden" name="value" value="{{ $characteristic->value }}"/>
+                            <input class="btn btn-primary" type="button" value="+" onclick="add_value({{ $characteristic->id }}, '{{ $character }}')"/>
+                            <input class="btn btn-primary" type="button" value="-"/>
+                        </form>
                     </td>
                 </tr>
             @endforeach
@@ -55,13 +66,17 @@
                     <td>
                         {{ $characteristic->characteristic_name }}
                     </td>
-                    <td id="{{ $characteristic->characteristic_id }}">
-                        @for($i=0;$i < $characteristic->value; $i++) o @endfor
+                    <td id="td-{{ $characteristic->id }}">
+                         @for($i=0;$i < $characteristic->value; $i++) {{ $character }} @endfor
                     </td>
                     <td>
-                        <input id="value-{{ $characteristic->characteristic_id }}" type="hidden" ame="value-{{ $characteristic->characteristic_id }}" value="{{ $characteristic->value }}"/>
-                        <input class="btn btn-primary" type="button" value="+"/>
-                        <input class="btn btn-primary" type="button" value="-"/>
+                        <form id="form-{{ $characteristic->id }}">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="name" value="{{ $characteristic->characteristic_name }}" />
+                            <input id="value-{{ $characteristic->id }}" type="hidden" name="value" value="{{ $characteristic->value }}"/>
+                            <input class="btn btn-primary" type="button" value="+" onclick="add_value({{ $characteristic->id }}, '{{ $character }}')"/>
+                            <input class="btn btn-primary" type="button" value="-"/>
+                        </form>
                     </td>
                 </tr>
             @endforeach
@@ -84,13 +99,17 @@
                     <td>
                         {{ $characteristic->characteristic_name }}
                     </td>
-                    <td id="{{ $characteristic->characteristic_id }}">
-                        @for($i=0;$i < $characteristic->value; $i++) o @endfor
+                    <td id="td-{{ $characteristic->id }}">
+                         @for($i=0;$i < $characteristic->value; $i++) {{ $character }} @endfor
                     </td>
                     <td>
-                        <input id="value-{{ $characteristic->characteristic_id }}" type="hidden" ame="value-{{ $characteristic->characteristic_id }}" value="{{ $characteristic->value }}"/>
-                        <input class="btn btn-primary" type="button" value="+"/>
-                        <input class="btn btn-primary" type="button" value="-"/>
+                        <form id="form-{{ $characteristic->id }}">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="name" value="{{ $characteristic->characteristic_name }}" />
+                            <input id="value-{{ $characteristic->id }}" type="hidden" name="value" value="{{ $characteristic->value }}"/>
+                            <input class="btn btn-primary" type="button" value="+" onclick="add_value({{ $characteristic->id }}, '{{ $character }}')"/>
+                            <input class="btn btn-primary" type="button" value="-"/>
+                        </form>
                     </td>
                 </tr>
             @endforeach
@@ -105,13 +124,17 @@
                     <td>
                         {{ $characteristic->characteristic_name }}
                     </td>
-                    <td id="{{ $characteristic->characteristic_id }}">
-                        @for($i=0;$i < $characteristic->value; $i++) o @endfor
+                    <td id="td-{{ $characteristic->id }}">
+                         @for($i=0;$i < $characteristic->value; $i++) {{ $character }} @endfor
                     </td>
                     <td>
-                        <input id="value-{{ $characteristic->characteristic_id }}" type="hidden" ame="value-{{ $characteristic->characteristic_id }}" value="{{ $characteristic->value }}"/>
-                        <input class="btn btn-primary" type="button" value="+"/>
-                        <input class="btn btn-primary" type="button" value="-"/>
+                        <form id="form-{{ $characteristic->id }}">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="name" value="{{ $characteristic->characteristic_name }}" />
+                            <input id="value-{{ $characteristic->id }}" type="hidden" name="value" value="{{ $characteristic->value }}"/>
+                            <input class="btn btn-primary" type="button" value="+" onclick="add_value({{ $characteristic->id }}, '{{ $character }}')"/>
+                            <input class="btn btn-primary" type="button" value="-"/>
+                        </form>
                     </td>
                 </tr>
             @endforeach
@@ -125,13 +148,17 @@
                     <td>
                         {{ $characteristic->characteristic_name }}
                     </td>
-                    <td id="{{ $characteristic->characteristic_id }}">
-                        @for($i=0;$i < $characteristic->value; $i++) o @endfor
+                    <td id="td-{{ $characteristic->id }}">
+                         @for($i=0;$i < $characteristic->value; $i++) {{ $character }} @endfor
                     </td>
                     <td>
-                        <input id="value-{{ $characteristic->characteristic_id }}" type="hidden" ame="value-{{ $characteristic->characteristic_id }}" value="{{ $characteristic->value }}"/>
-                        <input class="btn btn-primary" type="button" value="+"/>
-                        <input class="btn btn-primary" type="button" value="-"/>
+                        <form id="form-{{ $characteristic->id }}">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="name" value="{{ $characteristic->characteristic_name }}" />
+                            <input id="value-{{ $characteristic->id }}" type="hidden" name="value" value="{{ $characteristic->value }}"/>
+                            <input class="btn btn-primary" type="button" value="+" onclick="add_value({{ $characteristic->id }}, '{{ $character }}')"/>
+                            <input class="btn btn-primary" type="button" value="-"/>
+                        </form>
                     </td>
                 </tr>
             @endforeach
@@ -154,8 +181,8 @@
                     <td>
                         {{ $characteristic->characteristic_name }}
                     </td>
-                    <td id="{{ $characteristic->characteristic_id }}">
-                        @for($i=0;$i < $characteristic->value; $i++) o @endfor
+                    <td id="td-{{ $characteristic->id }}">
+                         @for($i=0;$i < $characteristic->value; $i++) {{ $character }} @endfor
                     </td>
                 </tr>
             @endforeach
@@ -167,16 +194,20 @@
         <table class="table table-striped">
             @foreach($card['powers_of_faction'] as $characteristic)
                 <tr>
-                    <td id="{{ $characteristic->characteristic_id }}">
+                    <td id="td-{{ $characteristic->id }}">
                         {{ $characteristic->characteristic_name }}
                     </td>
                     <td>
-                        @for($i=0;$i < $characteristic->value; $i++) o @endfor
+                         @for($i=0;$i < $characteristic->value; $i++) {{ $character }} @endfor
                     </td>
                     <td>
-                        <input id="value-{{ $characteristic->characteristic_id }}" type="hidden" ame="value-{{ $characteristic->characteristic_id }}" value="{{ $characteristic->value }}"/>
-                        <input class="btn btn-primary" type="button" value="+"/>
-                        <input class="btn btn-primary" type="button" value="-"/>
+                        <form id="form-{{ $characteristic->id }}">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="name" value="{{ $characteristic->characteristic_name }}" />
+                            <input id="value-{{ $characteristic->id }}" type="hidden" name="value" value="{{ $characteristic->value }}"/>
+                            <input class="btn btn-primary" type="button" value="+" onclick="add_value({{ $characteristic->id }}, '{{ $character }}')"/>
+                            <input class="btn btn-primary" type="button" value="-"/>
+                        </form>
                     </td>
                 </tr>
             @endforeach
@@ -200,13 +231,17 @@
                     <td>
                         {{ $characteristic->characteristic_name }}
                     </td>
-                    <td id="{{ $characteristic->characteristic_id }}">
-                        @for($i=0;$i < $characteristic->value; $i++) o @endfor
+                    <td id="td-{{ $characteristic->id }}">
+                         @for($i=0;$i < $characteristic->value; $i++) {{ $character }} @endfor
                     </td>
                     <td>
-                        <input id="value-{{ $characteristic->characteristic_id }}" type="hidden" ame="value-{{ $characteristic->characteristic_id }}" value="{{ $characteristic->value }}"/>
-                        <input class="btn btn-primary" type="button" value="+"/>
-                        <input class="btn btn-primary" type="button" value="-"/>
+                        <form id="form-{{ $characteristic->id }}">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="name" value="{{ $characteristic->characteristic_name }}" />
+                            <input id="value-{{ $characteristic->id }}" type="hidden" name="value" value="{{ $characteristic->value }}"/>
+                            <input class="btn btn-primary" type="button" value="+" onclick="add_value({{ $characteristic->id }}, '{{ $character }}')"/>
+                            <input class="btn btn-primary" type="button" value="-"/>
+                        </form>
                     </td>
                 </tr>
             @endforeach
@@ -221,13 +256,17 @@
                     <td>
                         {{ $characteristic->characteristic_name }}
                     </td>
-                    <td id="{{ $characteristic->characteristic_id }}">
-                        @for($i=0;$i < $characteristic->value; $i++) o @endfor
+                    <td id="td-{{ $characteristic->id }}">
+                         @for($i=0;$i < $characteristic->value; $i++) {{ $character }} @endfor
                     </td>
                     <td>
-                        <input id="value-{{ $characteristic->characteristic_id }}" type="hidden" ame="value-{{ $characteristic->characteristic_id }}" value="{{ $characteristic->value }}"/>
-                        <input class="btn btn-primary" type="button" value="+"/>
-                        <input class="btn btn-primary" type="button" value="-"/>
+                        <form id="form-{{ $characteristic->id }}">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="name" value="{{ $characteristic->characteristic_name }}" />
+                            <input id="value-{{ $characteristic->id }}" type="hidden" name="value" value="{{ $characteristic->value }}"/>
+                            <input class="btn btn-primary" type="button" value="+" onclick="add_value({{ $characteristic->id }}, '{{ $character }}')"/>
+                            <input class="btn btn-primary" type="button" value="-"/>
+                        </form>
                     </td>
                 </tr>
             @endforeach

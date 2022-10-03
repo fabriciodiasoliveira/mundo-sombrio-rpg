@@ -29,7 +29,7 @@ public function index()
     }
     public function show($id)
     {
-        $characteristic_stereotype = $this->model_characteristic_stereotype->get_class_person($id);
+        $characteristic_stereotype = $this->model_characteristic_stereotype->get_characteristic_Stereotype($id);
         return view('stereotype.show', compact('class', 'factions'));
     }
     public function edit($id)
@@ -41,7 +41,7 @@ public function index()
     {
         $options = $request->all();
         $this->model_characteristic_stereotype->update_wingout_model($id, $options);
-        $characteristic_stereotype = $this->model_characteristic_stereotype->get_class_person($id);
+        $characteristic_stereotype = $this->model_characteristic_stereotype->get_characteristic_Stereotype($id);
         return $characteristic_stereotype->value;
     }
     public function destroy($id)
@@ -52,7 +52,7 @@ public function index()
     //Demais métodos
     public function show_value($id)
     {
-        $characteristic_stereotype = $this->model_characteristic_stereotype->get_class_person($id);
+        $characteristic_stereotype = $this->model_characteristic_stereotype->get_characteristic_Stereotype($id);
         return $characteristic_stereotype->value;
     }
 }

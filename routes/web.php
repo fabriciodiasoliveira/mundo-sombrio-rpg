@@ -25,11 +25,13 @@ Route::get('/class', [App\Http\Controllers\ClassPersonController::class, 'index'
 Route::get('/class/{i}', [App\Http\Controllers\ClassPersonController::class, 'show'])->name('class.show');
 Route::get('/class/one/{i}', [App\Http\Controllers\ClassPersonController::class, 'show_one'])->name('class.show.one');
 
-//Characteristic_Stereotype
-
 Auth::routes();
 
 Route::group(["middleware" => 'auth'], function () {
+    //Characteristic_Stereotype//
+    Route::get('/characteristic_stereotype/{i}', [App\Http\Controllers\CharacteristicStereotypeController::class, 'show_value'])->name('characteristic_stereotype.show_value');
+    Route::post('/characteristic_stereotype/{id}', [App\Http\Controllers\CharacteristicStereotypeController::class, 'update'])->name('characteristic_stereotype.update');
+    
     Route::group(['middleware' => 'App\Http\Middleware\IsAdmin'], function() {
        //Class
        Route::get('/admin/class', [App\Http\Controllers\ClassPersonController::class, 'index'])->name('admin.class');

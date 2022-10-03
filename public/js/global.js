@@ -110,3 +110,32 @@ function concatenate_subtitle(){
     class_chapter[1] = class_chapter[1] + collapse5 + collapse5;
     ids++;
 }
+
+
+//Atualização do valor da característica na ficha
+function add_value(id, character){
+    var data = new FormData(document.getElementById("form-"+id));
+    data.delete('name');
+    value = data.get('value');
+    value++;
+    data.set('value', value);
+    
+    url = '/characteristic_stereotype/'+id;
+    fetch(url, {
+        method: "POST",
+        body: data
+    }).then(function (response) {
+        response.text()
+            .then(function (result) {
+                $("#td-"+id).html('');
+                for(i=0;i<value;i++){
+                    $("#td-"+id).html($("#td-"+id).html()+character+" ");
+                    $("#value-"+id).val(value);
+                }
+                
+                console.log('Request success: ', result);
+            })
+    }).catch(function (error) {
+        console.log('Request failure: ', error);
+    });
+}

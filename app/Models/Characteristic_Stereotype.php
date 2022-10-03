@@ -12,9 +12,9 @@ class Characteristic_Stereotype extends Model
     protected $table = "ms_characteristic_stereotypes";
     protected $fillable = [
         'name',
-        'description',
-        'class_id',
-        'image',
+        'characteristic_id',
+        'stareotype_id',
+        'value',
     ];
     //Métodos comuns
     public function get_all_characteristic_Stereotypes()
