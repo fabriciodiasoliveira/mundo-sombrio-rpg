@@ -115,27 +115,65 @@ function concatenate_subtitle(){
 //Atualização do valor da característica na ficha
 function add_value(id, character){
     var data = new FormData(document.getElementById("form-"+id));
+    name = data.get('name');
     data.delete('name');
+    data.delete('characteristic_type_name');
     value = data.get('value');
-    value++;
-    data.set('value', value);
     
-    url = '/characteristic_stereotype/'+id;
-    fetch(url, {
-        method: "POST",
-        body: data
-    }).then(function (response) {
-        response.text()
-            .then(function (result) {
-                $("#td-"+id).html('');
-                for(i=0;i<value;i++){
-                    $("#td-"+id).html($("#td-"+id).html()+character+" ");
-                    $("#value-"+id).val(value);
-                }
-                
-                console.log('Request success: ', result);
-            })
-    }).catch(function (error) {
-        console.log('Request failure: ', error);
-    });
+    if(value < 5){
+        value++;
+        data.set('value', value);
+        url = '/characteristic_stereotype/'+id;
+        fetch(url, {
+            method: "POST",
+            body: data
+        }).then(function (response) {
+            response.text()
+                .then(function (result) {
+                    $("#td-"+id).html('');
+                    for(i=0;i<result;i++){
+                        $("#td-"+id).html($("#td-"+id).html()+character+" ");
+                        $("#value-"+id).val(value);
+                    }
+                    console.log('Request success: ', result);
+                })
+        }).catch(function (error) {
+            console.log('Request failure: ', error);
+        });
+    }
+}
+function subtract_value(id, character){
+    var data = new FormData(document.getElementById("form-"+id));
+    name = data.get('name');
+    characteristic_type_name = data.get('characteristic_type_name');
+    data.delete('name');
+    data.delete('characteristic_type_name');
+    value = data.get('value');
+    //Configurando as condições do if
+    atributo = characteristic_type_name == 'Fisico' ||
+            characteristic_type_name == 'Mental' ||
+            characteristic_type_name == 'Social';
+    if((value > 0 && !atributo) ||
+            (value > 1 && atributo) ){
+        value--;
+        data.set('value', value);
+        url = '/characteristic_stereotype/'+id;
+        fetch(url, {
+            method: "POST",
+            body: data
+        }).then(function (response) {
+            response.text()
+                .then(function (result) {
+                    $("#td-"+id).html('');
+                    for(i=0;i<result;i++){
+                        $("#td-"+id).html($("#td-"+id).html()+character+" ");
+                        $("#value-"+id).val(value);
+                    }
+
+                    console.log('Request success: ', result);
+                })
+        }).catch(function (error) {
+            console.log('Request failure: ', error);
+        });
+    }
 }

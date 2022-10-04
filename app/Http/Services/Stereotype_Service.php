@@ -42,7 +42,13 @@ class Stereotype_Service {
             $array = [];
             $array['characteristic_id'] = $characterystic->id;
             $array['stereotype_id'] = $stereotype->id;
-            $array['value'] = 0;
+            if($characterystic->characteristic_type_name == 'Fisico' ||
+                    $characterystic->characteristic_type_name == 'Mental' ||
+                    $characterystic->characteristic_type_name == 'Social'){
+                $array['value'] = 1;
+            }else{
+                $array['value'] = 0;
+            }
             $this->model_characteristic_stereotype->store($array);
         }
     }
