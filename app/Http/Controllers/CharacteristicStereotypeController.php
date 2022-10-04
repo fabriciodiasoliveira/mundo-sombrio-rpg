@@ -25,7 +25,7 @@ public function index()
     {
         $options = $request->all();
         $this->model_characteristic_stereotype->store($options);
-        return redirect()->route('admin.class')->with('success', 'Uma definição de estereótipo inserida.');
+        return redirect()->route('admin.class')->with('success', 'Um valor inserido.');
     }
     public function show($id)
     {
@@ -47,7 +47,7 @@ public function index()
     public function destroy($id)
     {
         $this->model_characteristic_stereotype->remove($id);
-        return redirect()->route('admin.class')->with('success', 'Uma classe removida.');
+        return redirect()->route('admin.class')->with('success', 'Um valor excluído.');
     }
     //Demais métodos
     public function show_value($id)
