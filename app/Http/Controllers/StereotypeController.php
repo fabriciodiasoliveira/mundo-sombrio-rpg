@@ -33,7 +33,6 @@ class StereotypeController extends Controller
     {
         $options = $request->all();
         $id = $this->model_stereotype->store($options);
-        $this->service->create_new_characteristic_stereotypes($id);
         $stereotype = $this->model_stereotype->get_stereotype($id);
         return redirect()->route('admin.stereotype.edit', $stereotype->id)->with('success', 'Um estereótipo inserido.');
     }
