@@ -55,4 +55,9 @@ public function index()
         $characteristic_stereotype = $this->model_characteristic_stereotype->get_characteristic_Stereotype($id);
         return $characteristic_stereotype->value;
     }
+    public function get_characteristic_stereotype_for_name($characteristic_name, $stereotype_id)
+    {
+        $characteristic_stereotype = $this->model_characteristic_stereotype->get_characteristic_stereotype_for_name($characteristic_name, $stereotype_id);
+        return $characteristic_stereotype->id;
+    }
 }

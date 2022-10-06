@@ -150,11 +150,16 @@ function subtract_value(id, character){
     data.delete('characteristic_type_name');
     value = data.get('value');
     //Configurando as condições do if
-    atributo = characteristic_type_name == 'Fisico' ||
+    attibute = characteristic_type_name == 'Fisico' ||
             characteristic_type_name == 'Mental' ||
             characteristic_type_name == 'Social';
-    if((value > 0 && !atributo) ||
-            (value > 1 && atributo) ){
+    general = name == 'Força de vontade no jogo' ||
+            name == 'Pontos de sangue' ||
+            name == 'Força de Vontade' ||
+            name == 'Humanidade' ||
+            name == 'Dano';
+    if((value > 0 && !attibute) ||
+            (value > 1 && attibute) ){
         value--;
         data.set('value', value);
         url = '/characteristic_stereotype/'+id;
