@@ -71,6 +71,7 @@ class StereotypeController extends Controller
     public function destroy($id)
     {
         $this->model_stereotype->remove($id);
+        Log::notice('Estereótipo removido');
         return redirect()->route('admin.stereotype')->with('success', 'Um estereótipo removido.');
     }
     //Demais métodos

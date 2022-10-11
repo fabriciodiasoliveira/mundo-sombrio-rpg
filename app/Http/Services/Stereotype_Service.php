@@ -66,21 +66,21 @@ class Stereotype_Service {
         $array['faction'] = $faction;
         $array['class_person'] = $class_person;
         $array['stereotype'] = $stereotype;
-        $physical = $this->model_characteristic_stereotype->get_all_characteristic_stereotypes_for_characteristic_types($this->physical, $class_id);
+        $physical = $this->model_characteristic_stereotype->get_all_characteristic_stereotypes_for_characteristic_types_for_stereotype($this->physical, $stereotype_id);
         $array['physical'] = $physical;
-        $mental = $this->model_characteristic_stereotype->get_all_characteristic_stereotypes_for_characteristic_types($this->mental, $class_id);
+        $mental = $this->model_characteristic_stereotype->get_all_characteristic_stereotypes_for_characteristic_types_for_stereotype($this->mental, $stereotype_id);
         $array['mental'] = $mental;
-        $social = $this->model_characteristic_stereotype->get_all_characteristic_stereotypes_for_characteristic_types($this->social, $class_id);
+        $social = $this->model_characteristic_stereotype->get_all_characteristic_stereotypes_for_characteristic_types_for_stereotype($this->social, $stereotype_id);
         $array['social'] = $social;
-        $talents = $this->model_characteristic_stereotype->get_all_characteristic_stereotypes_for_characteristic_types($this->talents, $class_id);
+        $talents = $this->model_characteristic_stereotype->get_all_characteristic_stereotypes_for_characteristic_types_for_stereotype($this->talents, $stereotype_id);
         $array['talents'] = $talents;
-        $skills = $this->model_characteristic_stereotype->get_all_characteristic_stereotypes_for_characteristic_types($this->skills, $class_id);
+        $skills = $this->model_characteristic_stereotype->get_all_characteristic_stereotypes_for_characteristic_types_for_stereotype($this->skills, $stereotype_id);
         $array['skills'] = $skills;
-        $knowledge = $this->model_characteristic_stereotype->get_all_characteristic_stereotypes_for_characteristic_types($this->knowledge, $class_id);
+        $knowledge = $this->model_characteristic_stereotype->get_all_characteristic_stereotypes_for_characteristic_types_for_stereotype($this->knowledge, $stereotype_id);
         $array['knowledge'] = $knowledge;
-        $general = $this->model_characteristic_stereotype->get_all_characteristic_stereotypes_for_characteristic_types($this->general, $class_id);
+        $general = $this->model_characteristic_stereotype->get_all_characteristic_stereotypes_for_characteristic_types_for_stereotype($this->general, $stereotype_id);
         $array['general'] = $general;
-        $powers_of_class = $this->model_characteristic_stereotype->get_all_characteristic_stereotypes_for_factions($faction_id);
+        $powers_of_class = $this->model_characteristic_stereotype->get_all_characteristic_stereotypes_for_factions_for_stereotype($faction_id, $stereotype_id);
         $array['powers_of_faction'] = $powers_of_class;
         return $array;
     }
@@ -93,7 +93,7 @@ class Stereotype_Service {
         $array = $this->get_all_characteristic_stereotypes_for_generic_card($stereotype_id, $faction_id);
         switch ($class_id) {
             case 1:
-                $virtues = $this->model_characteristic_stereotype->get_all_characteristic_stereotypes_for_characteristic_types($this->virtues, $class_id);
+                $virtues = $this->model_characteristic_stereotype->get_all_characteristic_stereotypes_for_characteristic_types_for_stereotype($this->virtues, $stereotype_id);
                 $array['virtues'] = $virtues;
                 break;
             case 2:

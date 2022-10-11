@@ -99,7 +99,7 @@
         <table style="width:100%" class="table table-striped">
             @foreach($card['talents'] as $characteristic)
                 <tr>
-                    <td style="width:20%">
+                    <td style="width:20%; height: 70px;">
                         {{ $characteristic->characteristic_name }}
                     </td>
                     <td id="td-{{ $characteristic->id }}" style="width:50%">
@@ -125,7 +125,7 @@
         <table style="width:100%" class="table table-striped">
             @foreach($card['skills'] as $characteristic)
                 <tr>
-                    <td style="width:20%">
+                    <td style="width:20%; height: 70px;">
                         {{ $characteristic->characteristic_name }}
                     </td>
                     <td id="td-{{ $characteristic->id }}" style="width:50%">
@@ -150,7 +150,7 @@
         <table style="width:100%" class="table table-striped">
             @foreach($card['knowledge'] as $characteristic)
                 <tr>
-                    <td style="width:20%">
+                    <td style="width:20%; height: 70px;">
                         {{ $characteristic->characteristic_name }}
                     </td>
                     <td id="td-{{ $characteristic->id }}" style="width:50%">
@@ -181,7 +181,7 @@
 <div class="row">
     <div id="general" class="col-md-4">
         <table style="width:100%" class="table table-striped">
-            <div class="text-center"><h2>Características genéricas</h2></div>
+            <div class="text-center"><h2>Características mutáveis para a crônica</h2></div>
             @foreach($card['general'] as $characteristic)
                 <tr>
                     <td style="width:20%">

@@ -151,4 +151,30 @@ class Characteristic_Stereotype extends Model
                 ->where('cs.stereotype_id', '=', $stereotype_id)
                 ->first();
     }
+    public function get_all_characteristic_stereotypes_for_characteristic_types_for_stereotype($characteristic_type_id, $stereotype_id){
+        return DB::table('ms_characteristics as ch')
+                ->join('ms_class_people as c', 'c.id', '=', 'ch.class_id')
+                ->leftJoin('ms_factions as f', 'f.id', 'ch.faction_id' )
+                ->leftJoin('ms_races as r', 'ch.race_id', 'r.id' )
+                ->leftJoin('ms_auguries as a', 'ch.augury_id', 'a.id' )
+                ->leftJoin('ms_characteristic_types as ct', 'ch.characteristic_type_id', 'ct.id')
+                ->leftJoin('ms_characteristic_stereotypes as cs', 'cs.characteristic_id', 'ch.id')
+                ->select('c.name','ct.name as characteristic_type_name', 'f.name as faction_name', 'a.name as augury_name', 'r.name as race_name', 'ch.name as characteristic_name', 'cs.*')
+                ->where('ct.id', '=', $characteristic_type_id)
+                ->where('cs.stereotype_id', '=', $stereotype_id)
+                ->get();
+    }
+    public function get_all_characteristic_stereotypes_for_factions_for_stereotype($faction_id, $stereotype_id){
+        return DB::table('ms_characteristics as ch')
+                ->join('ms_class_people as c', 'c.id', '=', 'ch.class_id')
+                ->leftJoin('ms_factions as f', 'f.id', 'ch.faction_id' )
+                ->leftJoin('ms_races as r', 'ch.race_id', 'r.id' )
+                ->leftJoin('ms_auguries as a', 'ch.augury_id', 'a.id' )
+                ->leftJoin('ms_characteristic_types as ct', 'ch.characteristic_type_id', 'ct.id')
+                ->leftJoin('ms_characteristic_stereotypes as cs', 'cs.characteristic_id', 'ch.id')
+                ->select('c.name','ct.name as characteristic_type_name', 'f.name as faction_name', 'a.name as augury_name', 'r.name as race_name', 'ch.name as characteristic_name', 'cs.*')
+                ->where('f.id', '=', $faction_id)
+                ->where('cs.stereotype_id', '=', $stereotype_id)
+                ->get();
+    }
 }
