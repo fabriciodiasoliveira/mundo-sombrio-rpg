@@ -119,8 +119,15 @@ function add_value(id, character){
     data.delete('name');
     data.delete('characteristic_type_name');
     value = data.get('value');
+    general = name == 'Força de vontade no jogo' ||
+            name == 'Pontos de sangue' ||
+            name == 'Força de Vontade' ||
+            name == 'Humanidade' ||
+            name == 'Dano';
     
-    if(value < 5){
+    
+    if((value < 5 && !general)||
+            (value <10 && general)){
         value++;
         data.set('value', value);
         url = '/characteristic_stereotype/'+id;
@@ -153,11 +160,6 @@ function subtract_value(id, character){
     attibute = characteristic_type_name == 'Fisico' ||
             characteristic_type_name == 'Mental' ||
             characteristic_type_name == 'Social';
-    general = name == 'Força de vontade no jogo' ||
-            name == 'Pontos de sangue' ||
-            name == 'Força de Vontade' ||
-            name == 'Humanidade' ||
-            name == 'Dano';
     if((value > 0 && !attibute) ||
             (value > 1 && attibute) ){
         value--;

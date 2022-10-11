@@ -7,6 +7,7 @@ use App\Models\Characteristic_Stereotype;
 use App\Models\Class_Person;
 use App\Models\Faction;
 use App\Models\Stereotype;
+use Illuminate\Support\Facades\Log;
 
 class Stereotype_Service {
 
@@ -35,6 +36,7 @@ class Stereotype_Service {
     }
 
     public function create_new_characteristic_stereotypes($stereotype_id) {
+        Log::notice('Início da criação dos valores das características no estereótipo');
         $stereotype = $this->model_stereotype->get_stereotype($stereotype_id);
         $class_id = $stereotype->class_id;
         $characterystics = $this->model_characteristic->get_all_characteristics_for_class_people($class_id);
@@ -51,6 +53,7 @@ class Stereotype_Service {
             }
             $this->model_characteristic_stereotype->store($array);
         }
+        Log::notice('Valores criados com valores padrão');
     }
 
     //Obtendo características por classe separadamente
@@ -83,6 +86,7 @@ class Stereotype_Service {
     }
 
     public function get_all_characteristic_stereotypes_for_card($stereotype_id, $faction_id) {
+        Log::notice('Início da obtenção dos valores da ficha');
         $stereotype = $this->model_stereotype->get_stereotype($stereotype_id);
         $class_person = $this->model_class_person->get_class_person($stereotype->class_id);
         $class_id = $class_person->id;
@@ -103,14 +107,17 @@ class Stereotype_Service {
                 $array['races'] = $races;
                 break;
         }
+        Log::notice('Valores obtidos');
         return $array;
     }
 
     public function get_all_factions($stereotype_id) {
+        Log::notice('Início da obtenção das facções');
         $stereotype = $this->model_stereotype->get_stereotype($stereotype_id);
         $class = $this->model_class_person->get_class_person($stereotype->class_id);
         $class_id = $class->id;
         $factions = $this->model_class_person->get_all_factions($class_id);
+        Log::notice('Fim da obtenção das facções');
         return $factions;
     }
 

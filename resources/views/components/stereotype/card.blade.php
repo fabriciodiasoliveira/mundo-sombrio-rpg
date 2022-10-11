@@ -221,8 +221,44 @@
         </table>
     </div>
 </div>
-@if($card['class_person']->id == 2)
 <!-- =================================================================================================================================-->
+@if($card['class_person']->id == 1)
+<div class="row">
+    <div class="text-center col-md-12">
+        <br><br>
+        <h2>Características exclusivas de vampiro</h2>
+    </div>
+</div>
+<div class="row">
+    <div id="virtues" class="col-md-4">
+        <table style="width:100%" class="table table-striped">
+            <div class="text-center"><h2>Virtudes</h2></div>
+            @foreach($card['virtues'] as $characteristic)
+                <tr>
+                    <td style="width:20%">
+                        {{ $characteristic->characteristic_name }}
+                    </td>
+                    <td id="td-{{ $characteristic->id }}" style="width:50%">
+                         @for($i=0;$i < $characteristic->value; $i++) {{ $character }} @endfor
+                    </td>
+                    <td style="width:30%">
+                        <form id="form-{{ $characteristic->id }}">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="name" value="{{ $characteristic->characteristic_name }}" />
+                            <input type="hidden" name="characteristic_type_name" value="{{ $characteristic->characteristic_type_name }}"/>
+                            <input id="value-{{ $characteristic->id }}" type="hidden" name="value" value="{{ $characteristic->value }}"/>
+                            <input class="btn btn-primary" style="width:10%" type="button" value="+" onclick="add_value({{ $characteristic->id }}, '{{ $character }}')"/>
+                            <input class="btn btn-primary" style="width:10%" type="button" value="-" onclick="subtract_value({{ $characteristic->id }}, '{{ $character }}')"/>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        </table>
+    </div>
+</div>
+@endif
+<!-- =================================================================================================================================-->
+@if($card['class_person']->id == 2)
 <div class="row">
     <div class="text-center col-md-12">
         <br><br>
