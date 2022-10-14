@@ -203,7 +203,7 @@
                     <td style="width:20%">
                         {{ $characteristic->characteristic_name }}
                     </td>
-                    <td>
+                    <td id="td-{{ $characteristic->id }}" style="width:50%">
                          @for($i=0;$i < $characteristic->value; $i++) {{ $character }} @endfor
                     </td>
                     <td style="width:30%">
