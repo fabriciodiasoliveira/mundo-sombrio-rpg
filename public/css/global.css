@@ -12,3 +12,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     border-color: black;
     border-width: 5px;
 }
+.header_table{
+    color: white;
+    background: #0d6efc;
+    border-radius: 10px;
+    text-align: center;
+}
+.bordered{
+    border-width: 5px;
+    border-color: #0d6efc;
+}

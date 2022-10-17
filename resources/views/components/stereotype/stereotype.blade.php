@@ -1,6 +1,10 @@
 <script type="text/javascript">
     window.onload = () => {
         CKEDITOR.replace("description");
+        //Plugin de tamanho de imagem
+        CKEDITOR.config.extraPlugins = "imageresize";
+        //Configuração do plugin
+        CKEDITOR.config.imageResize = { maxWidth : 800, maxHeight : 800 };
     };
 
     function sendText() {

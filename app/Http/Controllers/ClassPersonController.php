@@ -14,7 +14,7 @@ class ClassPersonController extends Controller
         $this->model = new Class_Person();
         $this->service = new Class_Person_Service();
     }
-
+    //Métodos comuns
     public function index()
     {
         $classes = $this->model->get_all_class_persons();
@@ -52,5 +52,11 @@ class ClassPersonController extends Controller
     {
         $this->model->remove($id);
         return redirect()->route('admin.class')->with('success', 'Uma classe removida.');
+    }
+    //Métodos especiais
+    public function get_class()
+    {
+        $classes = $this->model->get_all_class_persons();
+        return view('components.class.select', compact('classes'));
     }
 }
