@@ -19,7 +19,7 @@ class StereotypeController extends Controller
         $this->model_class_person = new Class_Person();
         $this->service = new Stereotype_Service();
     }
-
+    //Métodos comuns
      public function index()
     {
         $stereotypes = $this->model_stereotype->get_all_stereotypes_with_class_information();
@@ -57,7 +57,7 @@ class StereotypeController extends Controller
             $stereotype_id = $stereotype->id;
             $faction_id = $stereotype->faction_id;
             Log::notice('Iniciada a edição do estereótipo - redirecionando para a edição de ficha');
-            return redirect()->route('admin.stereotype.edit_card', ['stereotype_id'=>$stereotype_id, 'faction_id'=>$faction_id])->with('success', 'Um estereótipo alterado.');
+            return redirect()->route('admin.stereotype.edit_card', ['stereotype_id'=>$stereotype_id, 'faction_id'=>$faction_id])->with('success', 'Iniciada a edição da ficha.');
         }
     }
     public function update(Request $request, $id)

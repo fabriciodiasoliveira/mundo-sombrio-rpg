@@ -2,84 +2,55 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\Character_Service;
 use App\Models\Character;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class CharacterController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    private $model;
+    private $service;
+    public function __construct() {
+        $this->model = new Character();
+        $this->service = new Character_Service();
+    }
+    //Métodos comuns
     public function index()
     {
-        //
+        $characters = $this->model->get_all_characters();
+        Log::notice('Obtida a lista de personagens');
+        return view('class.index', compact('characters'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('class.create');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $options = $request->all();
+        $this->model->store($options);
+        return redirect()->route('admin.class')->with('success', 'Uma classe inserida.');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Character  $character
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Character $character)
+    public function show($id)
     {
-        //
+        $character = $this->model->get_character($id);
+        return view('class.show', compact('class', 'factions'));
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Character  $character
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Character $character)
+    public function edit($id)
     {
-        //
+        $character = $this->model->get_character($id);
+        return view('class.edit', compact('class', 'characteristics'));
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Character  $character
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Character $character)
+    public function update(Request $request, $id)
     {
-        //
+        $options = $request->all();
+        $this->model->update_wingout_model($id, $options);
+        return redirect()->route('admin.class')->with('success', 'Uma classe alterada.');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Character  $character
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Character $character)
+    public function destroy($id)
     {
-        //
+        $this->model->remove($id);
+        return redirect()->route('admin.class')->with('success', 'Uma classe removida.');
     }
 }

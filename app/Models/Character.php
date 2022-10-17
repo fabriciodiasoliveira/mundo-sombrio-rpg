@@ -15,26 +15,26 @@ class Character extends Model
         'class_id',
         'image',
     ];
-    public function get_all_factions()
+    public function get_all_characters()
     {
-        return Faction::query()->select('*')->get();
+        return Character::query()->select('*')->get();
     }
     public function remove($id){
-        Faction::query()->where('id', '=', $id)->delete();
+        Character::query()->where('id', '=', $id)->delete();
     }
-    public function get_faction($id)
+    public function get_character($id)
     {
-        return Faction::query()->select('*')->where('id', '=', $id)->first();
+        return Character::query()->select('*')->where('id', '=', $id)->first();
     }
     public function update_wingout_model($id, Array $options)
     {
         unset($options['_token']);
         unset($options['_method']);
-        Faction::query()->where('id', '=', $id)->update($options);
+        Character::query()->where('id', '=', $id)->update($options);
     }
     public function store(array $options = [])
     {
         unset($options['_token']);
-        return Faction::query()->insertGetId($options);
+        return Character::query()->insertGetId($options);
     }
 }

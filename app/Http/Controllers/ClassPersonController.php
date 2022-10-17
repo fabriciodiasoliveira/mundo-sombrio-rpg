@@ -53,7 +53,7 @@ class ClassPersonController extends Controller
         $this->model->remove($id);
         return redirect()->route('admin.class')->with('success', 'Uma classe removida.');
     }
-    //Métodos especiais
+    //Demais métodos
     public function get_class()
     {
         $classes = $this->model->get_all_class_persons();
