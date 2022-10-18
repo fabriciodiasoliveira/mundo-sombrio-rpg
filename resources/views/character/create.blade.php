@@ -7,9 +7,9 @@
             <div class="card" style="width: 100%;">
                 <!--<img class="card-img-top" src="..." alt="Card image cap">-->
                 <div class="card-body">
-                    <h5 class="card-title">Nova classe</h5>
+                    <h5 class="card-title">Novo </h5>
                     <p class="card-text">Insira uma nova classe para o jogo.</p>
-                        @component('components.class.class')@endcomponent
+                        @component('components.character.character')@endcomponent
                 </div>
             </div>
         </div>

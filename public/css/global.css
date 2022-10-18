@@ -14,11 +14,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 .header_table{
     color: white;
-    background: #0d6efc;
+    background: #b8b8b8;
     border-radius: 10px;
     text-align: center;
 }
 .bordered{
     border-width: 5px;
-    border-color: #0d6efc;
+    border-color: #b8b8b8;
 }

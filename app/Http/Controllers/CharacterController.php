@@ -23,15 +23,17 @@ class CharacterController extends Controller
         Log::notice('Obtida a lista de personagens');
         return view('class.index', compact('characters'));
     }
-    public function create()
+    public function create($class_id)
     {
-        return view('class.create');
+        $class_person = $this->service->get_class_person($class_id);
+        return view('character.create', compact('class_id', 'character'));
     }
     public function store(Request $request)
     {
         $options = $request->all();
-        $this->model->store($options);
-        return redirect()->route('admin.class')->with('success', 'Uma classe inserida.');
+        $character_id = $this->model->store($options);
+        $character = $this->model->get_character_player($class_id);
+        return redirect()->route('character.edit', $character->id)->with('success', 'Um personagem inserido.');
     }
     public function show($id)
     {
