@@ -17,7 +17,11 @@ class HomeController extends Controller
     public function index()
     {
         $classes = $this->model->get_all_class_persons();
-        $characters = $this->model_character->get_all_characters_player(Auth::user()->id);
-        return view('welcome', compact('classes', 'characters'));
+        if(Auth::user()){
+            $characters = $this->model_character->get_all_characters_player(Auth::user()->id);
+            return view('welcome', compact('classes', 'characters'));
+        } else {
+            return view('welcome', compact('classes'));
+        }
     }
 }
