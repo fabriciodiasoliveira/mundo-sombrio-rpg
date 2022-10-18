@@ -2,21 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Character;
 use App\Models\Class_Person;
-use App\Models\Characteristic;
+use Auth;
 class HomeController extends Controller
 {
     private $model;
-    private $model_characteristic;
+    private $model_character;
     public function __construct()
     {
         $this->model = new Class_Person();
-        $this->model_characteristic = new Characteristic();
+        $this->model_character = new Character();
     }
     public function index()
     {
         $classes = $this->model->get_all_class_persons();
-        return view('welcome', compact('classes'));
+        $characters = $this->model_character->get_all_characters_player(Auth::user()->id);
+        return view('welcome', compact('classes', 'characters'));
     }
 }

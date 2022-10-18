@@ -8,6 +8,9 @@
                     <div class="col-md-6">
                         @component('components.class.select',compact('classes'))@endcomponent
                     </div>
+                    <div class="col-md-6">
+                        @component('components.character.list',compact('characters'))@endcomponent
+                    </div>
                 </div>
         </div>
     </div>

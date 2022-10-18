@@ -6,4 +6,5 @@ use App\Models\Character;
 
 class Character_Service {
 
+    
 }

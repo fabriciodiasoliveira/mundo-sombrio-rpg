@@ -6,6 +6,7 @@ use App\Http\Services\Character_Service;
 use App\Models\Character;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Auth;
 
 class CharacterController extends Controller
 {
@@ -52,5 +53,10 @@ class CharacterController extends Controller
     {
         $this->model->remove($id);
         return redirect()->route('admin.class')->with('success', 'Uma classe removida.');
+    }
+    //Demais métodos
+    public function get_all_characters_player(){
+        $characters = $this->model->get_all_characters_player(Auth::user()->id);
+        return view('character.index', compact('characters'));
     }
 }

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    @component('components.helpers.game_area',compact('classes'))@endcomponent
+    @component('components.helpers.game_area',compact('classes', 'characters'))@endcomponent
     <div class="row">
         <div class="col-md-12">
             @component('components.class.list',compact('classes'))@endcomponent
