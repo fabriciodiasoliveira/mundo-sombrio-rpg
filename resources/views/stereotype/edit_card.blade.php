@@ -6,6 +6,9 @@
         <div class="col-md-12">
             <h2>{{ $card['class_person']->name }} - {{ $card['stereotype']->name }}</h2>
         </div>
+        <div class="col-md-12">
+            <h3>Facção - {{ $card['faction']->name }}</h3>
+        </div>
         <div class="col-md-12 d-flex justify-content-center">
             <div class="card" style="width: 100%;">
                 <!--<img class="card-img-top" src="..." alt="Card image cap">-->

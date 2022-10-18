@@ -49,16 +49,7 @@ class StereotypeController extends Controller
         $stereotype = $this->model_stereotype->get_stereotype($id);
         $factions = $this->service->get_all_factions($id);
         $class = $this->model_class_person->get_class_person($stereotype->class_id);
-        if($stereotype->faction_id == 0){
-            Log::notice('Iniciada a edição do estereótipo - selecionando facções');
-            return view('stereotype.edit', compact('stereotype', 'factions', 'class'));
-        }
-        else{
-            $stereotype_id = $stereotype->id;
-            $faction_id = $stereotype->faction_id;
-            Log::notice('Iniciada a edição do estereótipo - redirecionando para a edição de ficha');
-            return redirect()->route('admin.stereotype.edit_card', ['stereotype_id'=>$stereotype_id, 'faction_id'=>$faction_id])->with('success', 'Iniciada a edição da ficha.');
-        }
+        return view('stereotype.edit', compact('stereotype', 'factions', 'class'));
     }
     public function update(Request $request, $id)
     {
