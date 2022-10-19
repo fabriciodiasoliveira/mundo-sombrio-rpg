@@ -8,7 +8,7 @@
                 <!--<img class="card-img-top" src="..." alt="Card image cap">-->
                 <div class="card-body">
                     <h5 class="card-title">Novo </h5>
-                    <p class="card-text">Insira uma nova classe para o jogo.</p>
+                    <p class="card-text">Crie seu novo {{ $class_person->name }}.</p>
                         @component('components.character.character')@endcomponent
                 </div>
             </div>

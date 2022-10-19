@@ -12,7 +12,7 @@
                     {{ $class->name }}
                 </td>
                 <td>
-                    <a class="btn btn-primary" href="{{ route('character.create') }}">Selecionar a criatura</a>
+                    <a class="btn btn-primary" href="{{ route('character.create', $class->id) }}">Selecionar a criatura</a>
                 </td>
             </tr>
         @endforeach

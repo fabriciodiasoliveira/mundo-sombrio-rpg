@@ -13,6 +13,6 @@ class Character_Service {
         $this->model_class_person = new Class_Person();
     }
     public function get_class_person($class_id){
-        return $this->model_character->get_character_player($class_id);
+        return $this->model_class_person->get_class_person($class_id);
     }
 }

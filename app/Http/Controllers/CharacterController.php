@@ -26,7 +26,7 @@ class CharacterController extends Controller
     public function create($class_id)
     {
         $class_person = $this->service->get_class_person($class_id);
-        return view('character.create', compact('class_id', 'character'));
+        return view('character.create', compact('class_id', 'class_person'));
     }
     public function store(Request $request)
     {
