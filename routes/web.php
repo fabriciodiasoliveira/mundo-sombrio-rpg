@@ -35,6 +35,8 @@ Route::group(["middleware" => 'auth'], function () {
             [App\Http\Controllers\CharacteristicStereotypeController::class, 'get_characteristic_stereotype_for_name'])->name('characteristic_stereotype.get_id_for_name');
     //Character
     Route::get('/character/create/{class_id}',  [App\Http\Controllers\CharacterController::class, 'create'])->name('character.create');
+    Route::post('/character',  [App\Http\Controllers\CharacterController::class, 'store'])->name('character.store');
+    Route::get('/character/show/{id}',  [App\Http\Controllers\CharacterController::class, 'show'])->name('character.show');
     
     Route::group(['middleware' => 'App\Http\Middleware\IsAdmin'], function() {
        //Class

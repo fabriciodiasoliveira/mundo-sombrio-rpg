@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Novo </h5>
                     <p class="card-text">Crie seu novo {{ $class_person->name }}.</p>
-                        @component('components.character.character')@endcomponent
+                        @component('components.character.character', compact('class_person'))@endcomponent
                 </div>
             </div>
         </div>

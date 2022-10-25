@@ -30,10 +30,15 @@ class CharacterController extends Controller
     }
     public function store(Request $request)
     {
-        $options = $request->all();
+        $options = [];
+        $options['name'] = $request['name'];
+        $options['description'] = $request['description'];
+        $options['stereotype_id'] = $this->service->store_stereotype($request);
+        $options['user_id'] = Auth::user()->id;
         $character_id = $this->model->store($options);
-        $character = $this->model->get_character_player($class_id);
-        return redirect()->route('character.edit', $character->id)->with('success', 'Um personagem inserido.');
+        $character = $this->model->get_character_player($character_id);
+//        return redirect()->route('character.edit', $character->id)->with('success', 'Um personagem inserido.');
+        return redirect()->route('home')->with('success', 'personagem criado.');
     }
     public function show($id)
     {

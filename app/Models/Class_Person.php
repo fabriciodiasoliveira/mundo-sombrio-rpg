@@ -20,7 +20,9 @@ class Class_Person extends Model
     //Métodos comuns
     public function get_all_class_persons()
     {
-        return Class_Person::query()->select('*')->get();
+        return Class_Person::query()->select('*')
+                ->where('id', '=', 1)
+                ->get();
     }
     public function remove($id){
         Class_Person::query()->where('id', '=', $id)->delete();

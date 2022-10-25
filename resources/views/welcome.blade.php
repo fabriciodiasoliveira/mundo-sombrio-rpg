@@ -5,7 +5,7 @@
     
     <div class="row">
         @if(Auth::user())
-            <div class="col-md-12">
+            <div class="col-md-12 animate__animated animate__zoomIn">
                 @component('components.helpers.game_area',compact('classes', 'characters'))@endcomponent
             </div>
         @endif
