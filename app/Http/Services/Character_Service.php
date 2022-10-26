@@ -25,4 +25,7 @@ class Character_Service {
         $options['class_id'] = $request['class_id'];
         return $this->model_stereotype->store($options);
     }
+    public function get_all_factions($class_id){
+        return $this->model_class_person->get_all_factions($class_id);
+    }
 }

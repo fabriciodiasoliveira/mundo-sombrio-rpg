@@ -10,15 +10,17 @@
                 </td>
             </thead>
             <tr>
+                <td></td>
                 <td><h3>Nome</h3></td>
                 <td><h3>Criatura</h3></td>
                 <td><h3>Grupo</h3></td>
             </tr>
             @foreach ($characters as $character)
             <tr>
-                <td width="10%"><a href="{{ route('character.show', $character->id) }}">{{ $character->name }}</a></td>
-                <td width="45%">{{ $character->class_name }}</td>
-                <td width="45%">{{ $character->faction_name }}</td>
+                <td><a class="btn btn-primary" href="{{ route('character.show', $character->id) }}">Ficha</a></td>
+                <td width="10%">{{ $character->name }}</td>
+                <td width="40%">{{ $character->class_name }}</td>
+                <td width="40%">{{ $character->faction_name }}</td>
             </tr>
             @endforeach
         </table>

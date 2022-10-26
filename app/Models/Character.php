@@ -56,8 +56,9 @@ class Character extends Model
                 ->join('ms_stereotypes as s', 's.id', '=', 'ch.stereotype_id')
                 ->leftJoin('ms_class_people as c', 's.class_id', 'c.id' )
                 ->leftJoin('ms_factions as f', 's.faction_id', 'f.id' )
-                ->select('ch.*','c.name as class_name', 'f.name as faction_name', 's.name as stereotype_name')
+                ->select('ch.*','c.name as class_name', 'c.id as class_id', 'f.name as faction_name', 
+                        'f.id as faction_id', 's.name as stereotype_name', 's.id as stereotype_id')
                 ->where('ch.id', '=', $character_id)
-                ->get();
+                ->first();
     }
 }

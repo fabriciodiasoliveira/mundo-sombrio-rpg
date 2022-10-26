@@ -42,8 +42,10 @@ class CharacterController extends Controller
     }
     public function show($id)
     {
-        $character = $this->model->get_character($id);
-        return view('class.show', compact('class', 'factions'));
+        $character = $this->model->get_character_player($id);
+        $class_id = $character->class_id;
+        $factions = $this->service->get_all_factions($class_id);
+        return view('character.show', compact('character', 'factions'));
     }
     public function edit($id)
     {
