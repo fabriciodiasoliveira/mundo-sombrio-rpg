@@ -1,5 +1,5 @@
 <div class="row">
-    @if($character->faction_id==0)
+    @if($character->faction_id==null)
     <div id="factions" class="col-md-12">
         <h2>Selecione agora a qual grupo seu personagem pertence</h2>
         @foreach($factions as $faction)

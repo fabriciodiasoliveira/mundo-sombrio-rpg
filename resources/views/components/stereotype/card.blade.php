@@ -184,12 +184,23 @@
             <div class="text-center"><h2>Características mutáveis para a crônica</h2></div>
             @foreach($card['general'] as $characteristic)
                 <tr>
-                    <td style="width:20%">
+                    <td style="width:20%; height: 70px;">
                         {{ $characteristic->characteristic_name }}
                     </td>
                     <td id="td-{{ $characteristic->id }}" style="width:50%">
                          @for($i=0;$i < $characteristic->value; $i++) {{ $character }} @endfor
                     </td>
+                    <td style="width:30%">
+                        <form id="form-{{ $characteristic->id }}">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="name" value="{{ $characteristic->characteristic_name }}" />
+                            <input type="hidden" name="characteristic_type_name" value="{{ $characteristic->characteristic_type_name }}"/>
+                            <input id="value-{{ $characteristic->id }}" type="hidden" name="value" value="{{ $characteristic->value }}"/>
+                            <input class="btn btn-primary" style="width:10%" type="button" value="+" onclick="add_value({{ $characteristic->id }}, '{{ $character }}')"/>
+                            <input class="btn btn-primary" style="width:10%" type="button" value="-" onclick="subtract_value({{ $characteristic->id }}, '{{ $character }}')"/>
+                        </form>
+                    </td>
+                </tr>
                 </tr>
             @endforeach
         </table>
