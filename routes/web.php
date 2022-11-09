@@ -27,6 +27,7 @@ Route::get('/class/one/{i}', [App\Http\Controllers\ClassPersonController::class,
 
 Auth::routes();
 
+//Usuário logado
 Route::group(["middleware" => 'auth'], function () {
     //Characteristic_Stereotype//
     Route::get('/characteristic_stereotype/{i}', [App\Http\Controllers\CharacteristicStereotypeController::class, 'show_value'])->name('characteristic_stereotype.show_value');
@@ -38,6 +39,10 @@ Route::group(["middleware" => 'auth'], function () {
     Route::post('/character',  [App\Http\Controllers\CharacterController::class, 'store'])->name('character.store');
     Route::get('/character/show/{id}',  [App\Http\Controllers\CharacterController::class, 'show'])->name('character.show');
     
+    //Stereotype
+    Route::get('/stereotype/edit_card/{stereotype_id}/{faction_id}', [App\Http\Controllers\StereotypeController::class, 'edit_card'])->name('stereotype.edit_card');
+    
+    //Rotas do administrador
     Route::group(['middleware' => 'App\Http\Middleware\IsAdmin'], function() {
        //Class
        Route::get('/admin/class', [App\Http\Controllers\ClassPersonController::class, 'index'])->name('admin.class');

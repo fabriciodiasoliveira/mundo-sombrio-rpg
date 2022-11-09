@@ -4,7 +4,7 @@
         <div id="description">
             {!! $character->description !!}
         </div>
-        <div id="factions">
+        <div>
             @component('components.character.factions', compact ('factions', 'character'))@endcomponent
         </div>
     </div>
