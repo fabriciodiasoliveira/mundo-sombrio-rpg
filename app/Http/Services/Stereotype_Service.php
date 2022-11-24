@@ -7,6 +7,7 @@ use App\Models\Characteristic_Stereotype;
 use App\Models\Class_Person;
 use App\Models\Faction;
 use App\Models\Stereotype;
+use App\Models\Character;
 use Illuminate\Support\Facades\Log;
 
 class Stereotype_Service {
@@ -26,6 +27,7 @@ class Stereotype_Service {
     private $model_characteristic_stereotype;
     private $model_factions;
     private $model_class_person;
+    private $model_character;
 
     public function __construct() {
         $this->model_stereotype = new Stereotype();
@@ -33,6 +35,7 @@ class Stereotype_Service {
         $this->model_characteristic = new Characteristic();
         $this->model_factions = new Faction();
         $this->model_class_person = new Class_Person();
+        $this->model_character = new Character();
     }
 
     public function create_new_characteristic_stereotypes($stereotype_id) {
@@ -120,5 +123,7 @@ class Stereotype_Service {
         Log::notice('Fim da obtenção das facções');
         return $factions;
     }
-
+    public function get_character($id){
+        return $this->model_character->get_character($id);
+    }
 }

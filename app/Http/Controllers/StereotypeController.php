@@ -80,4 +80,19 @@ class StereotypeController extends Controller
         $card = $this->service->get_all_characteristic_stereotypes_for_card($stereotype_id, $faction_id);
         return view('stereotype.edit_card', compact('card'));
     }
+    public function edit_card_character_player($character_id, $faction_id){
+        Log::notice('Início da edição da ficha do jogador');
+        $array = [];
+        $character = $this->service->get_character($character_id);
+        $stereotype_id = $character->stereotype_id;
+        $stereotype = $this->model_stereotype->get_stereotype($stereotype_id);
+        if($stereotype->generated == 0){
+            $this->service->create_new_characteristic_stereotypes($stereotype_id);
+            $array['generated'] = 1;
+            $array['faction_id'] = $faction_id;
+            $this->model_stereotype->update_wingout_model($stereotype_id, $array);
+        }
+        $card = $this->service->get_all_characteristic_stereotypes_for_card($stereotype_id, $faction_id);
+        return view('components.character.card', compact('card'));
+    }
 }

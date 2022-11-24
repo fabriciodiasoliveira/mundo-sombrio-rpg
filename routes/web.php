@@ -40,7 +40,8 @@ Route::group(["middleware" => 'auth'], function () {
     Route::get('/character/show/{id}',  [App\Http\Controllers\CharacterController::class, 'show'])->name('character.show');
     
     //Stereotype
-    Route::get('/stereotype/edit_card/{stereotype_id}/{faction_id}', [App\Http\Controllers\StereotypeController::class, 'edit_card'])->name('stereotype.edit_card');
+    Route::get('/stereotype/edit_card_character_player/{character_id}/{faction_id}', 
+            [App\Http\Controllers\StereotypeController::class, 'edit_card_character_player'])->name('stereotype.edit_card_character_player');
     
     //Rotas do administrador
     Route::group(['middleware' => 'App\Http\Middleware\IsAdmin'], function() {
